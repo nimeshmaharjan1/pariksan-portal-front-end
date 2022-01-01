@@ -1,1 +1,39 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --mainFont: 'Roboto', sans-serif;
+}
+.textCenter{
+  text-align: center;
+}
+.pageHeader{
+  font-family: var(--mainFont);
+  margin: 1rem auto -6.5rem auto;
+  font-size: 8rem;
+  z-index: 0; /*The z-index property specifies the stack order of an element.*/
+  opacity: .1;
+}
+nb-card{
+  margin-top: 10.5rem;
+}
+@media screen and (max-width: 600px) {
+  .pageHeader{
+    font-size: 5rem;
+    line-height: .9em;
+    margin-bottom: -9rem;
+    margin-top: -1rem;
+  }
+}
+.registerBtn{
+  margin-right: 0.8rem;
+  margin-top: 0.2rem;
+}
