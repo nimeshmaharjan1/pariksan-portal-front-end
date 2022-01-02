@@ -11,13 +11,15 @@ import { NavbarComponent } from './static/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './static/sidebar/sidebar.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
