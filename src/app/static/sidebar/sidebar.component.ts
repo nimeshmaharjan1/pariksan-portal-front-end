@@ -17,10 +17,16 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Home',
       icon: 'home-outline',
+      link: '/login'
+    },
+    {
+      title: 'Categories',
+      icon: 'list-outline',
     },
     {
       title: 'Sign Up',
       icon: 'checkmark-circle-outline',
+      link: '/signup'
     },
     {
       title: 'Privacy Policy',

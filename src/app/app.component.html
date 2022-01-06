@@ -1,21 +1,23 @@
 <nb-layout>
 
-  <nb-layout-header fixed> 
+  <nb-layout-header fixed>
     <app-navbar></app-navbar>
   </nb-layout-header>
-  
-<nb-sidebar>
-  <app-sidebar></app-sidebar>
-</nb-sidebar>
+
+  <nb-sidebar>
+    <div class="main-container">
+      <app-sidebar></app-sidebar>
+    </div>
+  </nb-sidebar>
 
   <nb-layout-column>
 
     <router-outlet></router-outlet>
-    
+
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+    <!-- Insert footer here -->
   </nb-layout-footer>
 
 </nb-layout>

@@ -12,7 +12,7 @@ label{
   padding: 0.3rem;
 }
 nb-card{
-  margin-top: 7.5rem;
+  margin: 7.5rem 20rem auto 20rem;
 }
 .fPw{
   margin-left: 0.5rem;
@@ -32,7 +32,7 @@ nb-card{
   right: 0.8rem;
   transform: translate(5rem, -50%);
   opacity: 0;
-  transition: all 0.5s;
+  transition: all 1s;
   color: #fd4444;
   font-family: var(--labelFont);
 }
@@ -55,7 +55,7 @@ nb-card{
   right: 0.8rem;
   transform: translate(5rem, -50%);
   opacity: 0;
-  transition: all 0.5s;
+  transition: all 1s;
   color: #fd4444;
   font-family: var(--labelFont);
 }

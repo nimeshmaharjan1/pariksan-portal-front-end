@@ -1,41 +1,35 @@
-<div class="bootstrap-wrapper">
+<div>
   <h1 class="pageHeader">Register Here</h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <nb-card status="danger" size="giant">
-          <nb-card-body>
-            <form (ngSubmit)="formSubmit()">
-                <label>Username</label>
-              <input type="text" [(ngModel)]="user.username" name="username" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your username here">
-                <label>Password</label>
-              <input type="password" [(ngModel)]="user.password" name="password" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your password here">
-                <label>First Name</label>
-              <input type="text" [(ngModel)]="user.firstName" name="firstName" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your first name here">
-                <label>Last Name</label>
-              <input type="text" [(ngModel)]="user.lastName" name="lastName" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your last name here">
-                <label>E-mail</label>
-              <input type="text" [(ngModel)]="user.email" name="email" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your e-mail address here">
-                <label>Phone Number</label>
-              <input type="text" [(ngModel)]="user.phone" name="phone" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
-                placeholder="Enter your phone number here">
-                <div class="container textCenter" style="margin-top: 0.3rem">
-                    <button type="submit" class="registerBtn"  nbButton outline status="danger">
-                      Register
-                    </button>
-                    <button class="registerBtn" nbButton outline status="primary">
-                      Clear Fields
-                    </button>
-                  </div>
-            </form>
-          </nb-card-body>
-        </nb-card>
-      </div>
-    </div>
-  </div>
 </div>
+<nb-card>
+  <nb-card-body>
+    <form (ngSubmit)="formSubmit()">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="user.username" name="username" nbInput fullWidth fieldSize="large"
+        status="primary" shape="semi-round" placeholder="Enter your username here">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" nbInput fullWidth fieldSize="large"
+        status="primary" shape="semi-round" placeholder="Enter your password here">
+      <label>First Name</label>
+      <input type="text" [(ngModel)]="user.firstName" name="firstName" nbInput fullWidth fieldSize="large"
+        status="primary" shape="semi-round" placeholder="Enter your first name here">
+      <label>Last Name</label>
+      <input type="text" [(ngModel)]="user.lastName" name="lastName" nbInput fullWidth fieldSize="large"
+        status="primary" shape="semi-round" placeholder="Enter your last name here">
+      <label>E-mail</label>
+      <input type="text" [(ngModel)]="user.email" name="email" nbInput fullWidth fieldSize="large" status="primary"
+        shape="semi-round" placeholder="Enter your e-mail address here">
+      <label>Phone Number</label>
+      <input type="text" [(ngModel)]="user.phone" name="phone" nbInput fullWidth fieldSize="large" status="primary"
+        shape="semi-round" placeholder="Enter your phone number here">
+      <div class="container textCenter" style="margin-top: 0.3rem">
+        <button type="submit" class="registerBtn" nbButton outline status="danger">
+          Register
+        </button>
+        <button class="registerBtn" nbButton outline status="primary">
+          Clear Fields
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

@@ -1,9 +1,13 @@
 <div style="display: flex;">
-  <button  style="height: 38px;width: 45px;" nbButton status="danger" outline size="large" (click)="toggle()">
-    <nb-icon icon="menu"></nb-icon>
-  </button>
-  <!-- <h1 style="font-family: var(--mainFont); margin-left: 1.5rem;">
-    Pariksan Portal
-  </h1> -->
+  <div style="margin-left: 1rem;">
+    <button style="height: 38px;width: 45px;" nbButton status="danger" outline size="large" (click)="toggle()">
+      <nb-icon icon="menu"></nb-icon>
+    </button>
+  </div>
+  <div style="margin-left: 74rem;padding: 2px;padding-right: 10px;">
+    <nb-user name="Nimesh Maharjan" 
+    [nbContextMenu]="items" 
+    nbContextMenuTag="my-context-menu">
+    </nb-user>
+  </div>
 </div>
-
