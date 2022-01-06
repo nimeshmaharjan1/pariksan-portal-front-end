@@ -1,5 +1,6 @@
 form{
-    margin: 1.3rem 1rem auto 1rem;
+    margin: 1rem 0.5rem auto 0.5rem;
+    overflow: auto;
 }
 
 form input{
@@ -9,7 +10,7 @@ form input{
 form input:hover{
     border: 3px solid rgb(139, 70, 185);
 }
-label{
-    font-family: 'Roboto Mono', monospace;
-    padding: 0.3rem;
+nb-card{
+    margin-top: 8rem;
+    height: 47rem;
 }

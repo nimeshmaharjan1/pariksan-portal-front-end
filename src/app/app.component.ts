@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  layout: any = {};
+  sidebar: any = {};
+
+  private alive = true;
+
   title = 'pariksan_portal-frontend';
 }

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './static/sidebar/sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoginComponent } from './pages/login/login.component';
     NbButtonModule,
     NbSidebarModule.forRoot(),
     NbActionsModule,
-    NbMenuModule.forRoot()
+    NbMenuModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

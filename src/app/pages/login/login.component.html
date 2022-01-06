@@ -1,33 +1,38 @@
-
-
-  <button onclick="document.getElementById('id01').style.display='block'" style="margin: 12rem auto auto 0.4rem;"  nbButton outline status="danger">
-    LOGIN
-  </button>
-
-  <div id="id01" class="modal">
-  
-    <form class="modal-content animate">
-      <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <h1 class="pageHeader" style="padding: 20px;">Login Here</h1>
-      </div>
-  
-      <div class="container" style="margin-top: 7rem;">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-  
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-          
-        <button class="loginBtn" type="submit">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-      </div>
-  
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-      </div>
-    </form>
-  </div>
+<div class="bootstrap-wrapper">
+  <h1 class="pageHeader">Login Here</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <nb-card>
+          <nb-card-body>
+            <form>
+              <div class="wrapper">
+              <label>Username</label><br>
+              <input type="text" name="username" required nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
+                placeholder="Enter your username here" autofocus autocomplete="off"><br>
+                <div class="validation required">*Required</div>
+              </div>
+              <div class="wrapperPw">
+              <label>Password</label><br>
+              <input type="password" required name="password" nbInput fullWidth fieldSize="large" status="primary" shape="semi-round"
+                placeholder="Enter your password here">
+                <div class="validationPw required">*Required</div>
+              </div>
+                <a href="#" class="fPw">Forgot Password?</a>
+                <div class="container textCenter" style="margin-top: 0.3rem">
+                  <button type="submit" class="mb-2"  nbButton outline status="danger">
+                    LOGIN
+                  </button>
+                  <p class="mt-3 signup" style="font-size: 14px;
+                  font-family: 'Montserrat', sans-serif;">
+                    Not a member? <a href="#" style="text-decoration: none;">Sign Up now</a>
+                  </p>
+                </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+        </div>
+        </div>
+        </div>
+        </div>
+        
