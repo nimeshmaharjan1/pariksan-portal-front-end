@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
       .subscribe(name => this.window.alert(`${name} was clicked!`));
   }
   
-  toggle() {
-    this.sidebarService.toggle();
-    this.toggleSideBar = true;
+  toggleCompact() {
+    this.sidebarService.toggle(true);
 }
+
 }
