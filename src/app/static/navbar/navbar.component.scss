@@ -10,3 +10,28 @@
 .container{
     display: flex;
 }
+.flex{
+    display: flex;
+    gap: 75rem;
+}
+
+@media screen and (max-width: 450px){
+    .flex{
+        display: flex;
+        gap: 8rem;
+    }
+}
+
+// @media screen and (min-width: 1440px){
+//     .flex{
+//         display: flex;
+//         gap: 72rem;
+//     }
+// }
+
+// @media screen and (min-width: 2560px){
+//     .flex{
+//         display: flex;
+//         gap: 140rem;
+//     }
+// }

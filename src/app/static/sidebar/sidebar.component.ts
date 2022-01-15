@@ -33,6 +33,10 @@ export class SidebarComponent implements OnInit {
       icon: { icon: 'checkmark-outline', pack: 'eva' },
     },
     {
+      title: 'Login',
+      icon: 'log-in-outline'
+    },
+    {
       title: 'Logout',
       icon: 'unlock-outline',
     },

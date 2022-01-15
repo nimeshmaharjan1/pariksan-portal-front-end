@@ -8,6 +8,8 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  
+  toggleSideBar:boolean = false;
   items = [
     {
       title: 'Profile',
@@ -33,7 +35,9 @@ export class NavbarComponent implements OnInit {
       )
       .subscribe(name => this.window.alert(`${name} was clicked!`));
   }
+  
   toggle() {
     this.sidebarService.toggle();
-  }
+    this.toggleSideBar = true;
+}
 }

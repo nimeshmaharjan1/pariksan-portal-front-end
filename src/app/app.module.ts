@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './static/sidebar/sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NbContextMenuModule,
     NbUserModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
