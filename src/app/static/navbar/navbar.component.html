@@ -1,13 +1,11 @@
-<div id="hero" class="flex">
-  <div class="toggle-btn">
-    <button style="height: 38px;width: 45px;" nbButton status="danger" outline size="large" (click)="toggleCompact()">
-      <nb-icon icon="menu"></nb-icon>
-    </button>
+<div class="d-flex" style="gap: 76rem">
+  <div class="header-container">
+      <button style="height: 38px;width: 45px;" nbButton status="danger" outline size="large" (click)="toggleCompact()">
+        <nb-icon icon="menu"></nb-icon>
+      </button>
   </div>
-  <div style="padding: 2px;padding-right: 10px;margin-left: 1rem;">
-    <nb-user name="Intan Kusuma Ayu" 
-    [nbContextMenu]="items" 
-    nbContextMenuTag="my-context-menu">
+  <div class="header-container">
+    <nb-user name="Intan Kusuma Ayu" [nbContextMenu]="items" nbContextMenuTag="my-context-menu">
     </nb-user>
   </div>
 </div>

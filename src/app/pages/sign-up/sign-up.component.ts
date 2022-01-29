@@ -36,6 +36,11 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.userService.addUser(this.user).subscribe(
+    //   {
+    //   next: (data: any) => console.log(data, 'success'),
+    //   error: (e) => console.error(e, 'error'),
+    //   complete: () => console.log('success')
+    // }
       (data) => {
         //Sucess
         console.log(data)

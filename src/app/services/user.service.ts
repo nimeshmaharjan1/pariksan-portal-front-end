@@ -5,6 +5,8 @@ import baseUrl from './helper';
 @Injectable({
   providedIn: 'root'
 })
+
+//TO ADD USER
 export class UserService {
 
   constructor(private http: HttpClient) { }
