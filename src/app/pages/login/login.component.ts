@@ -54,6 +54,15 @@ export class LoginComponent implements OnInit {
         console.log('Success');
         console.log(data);
         
+        this.login.loginUser(data.token);
+        this.login.getCurrentUser().subscribe(
+          (user:any) => {
+            this.login.setUser(user);
+            console.log(user);
+            //redirect ADMIN / STUDENT
+            
+          }
+        )
       },
       (error) => {
         console.log("Error");

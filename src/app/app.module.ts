@@ -15,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './static/footer/footer.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { FooterComponent } from './static/footer/footer.component';
     NbUserModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
