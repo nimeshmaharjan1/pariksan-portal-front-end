@@ -16,6 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './static/footer/footer.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { authInterceptorProviders } from './services/auth.interceptor';
     NavbarComponent,
     SidebarComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent,
+    UserDashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

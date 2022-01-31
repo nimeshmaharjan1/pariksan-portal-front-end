@@ -1,7 +1,27 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <app-navbar></app-navbar>
+    <div class="header-container hidden-print">
+      <div class="logo-container">
+        <button style="height: 29px;width: 35px;" nbButton status="danger" outline size="medium"
+          (click)="toggleCompact()">
+          <nb-icon icon="menu"></nb-icon>
+        </button>
+        <a class="logo" [routerLink]="['']">Pariksan Portal</a>
+      </div>
+    </div>
+
+    <div class="header-container another-header">
+      <nb-actions size="medium">
+        <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/login']">Login</nb-action>   
+        <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/signup']">Register</nb-action>
+        <nb-action *ngIf="isLoggedIn && user" class="control-item" style="color: rgb(101, 223, 194);font-size: 1rem">
+          <nb-icon icon="person-outline" style="font-size: 1.4rem;" class="m-1"></nb-icon>{{user.username}}</nb-action>
+        <nb-action (click) = logout() *ngIf="isLoggedIn" class="control-item logout-item" [routerLink]="['/admin/users']">Logout</nb-action>
+        <!-- <nb-action   class="control-item"  [routerLink]="['/referral/personal']">Personal</nb-action> 
+        <nb-action   class="control-item"  [routerLink]="['/referral/agency']">Agency</nb-action>  -->
+      </nb-actions>
+    </div>
   </nb-layout-header>
 
   <nb-sidebar state="compacted">

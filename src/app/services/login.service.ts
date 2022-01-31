@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
@@ -7,8 +8,13 @@ import baseUrl from './helper';
 })
 
 export class LoginService {
+  public logInStatusSubject = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
+
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}/current-user`)
+  }
 
   //GENERATE TOKEN
   public generateToken(loginData: any){
@@ -17,13 +23,14 @@ export class LoginService {
 
   //Login User: set token in local storage
   public loginUser(token){
-    localStorage.setItem('token', token);
+    localStorage.setItem("token", token);
+    // this.logInStatusSubject.next(true);
     return true;
   }
 
   //User is logged in or not
   public isLoggedIn(){
-    let tokenStr = localStorage.getItem('token');
+    let tokenStr = localStorage.getItem("token");
     if(tokenStr === undefined || tokenStr === '' || tokenStr === null) {
       return false;
     } else {
@@ -33,8 +40,8 @@ export class LoginService {
 
   //LOGOUT : remove token from local storage
   public logout(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     return true;
   }
 
@@ -45,7 +52,7 @@ export class LoginService {
 
   //set user details in local storage
   public setUser(user: any){
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   //Get user detail
@@ -54,7 +61,7 @@ export class LoginService {
     if (userStr !== null) {
       return JSON.parse(userStr);
     } else {
-      this.logout;
+      this.logout();
       return null;
     }
   }
@@ -63,9 +70,5 @@ export class LoginService {
   public getUserRole() {
     let user = this.getUser();
     return user.authorities[0].authority;
-  }
-
-  public getCurrentUser(){
-    return this.http.get('${baseUrl}/current-user')
   }
 }
