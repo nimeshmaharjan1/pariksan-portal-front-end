@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 class="pageHeader mb-1">Profile</h1>
+    <div class="row mt-4 mb-5 justify-content-around">
+        <div class="col-md-4">
+            <nb-card>
+                <nb-card-body>
+                    <div>
+
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-md-7">
+            <nb-card>
+                <nb-card-body>
+                    <nb-tabset>
+                      <nb-tab tabTitle="ABOUT">
+                          <div class="container">
+                              <div class="row">
+                                <p class="mt-2">ID: <span>1</span></p>
+                                <p>Username: <span>nimeshmaharjan1</span></p>
+                                <p>Phone Number: <span>+977-9843323290</span></p>
+                                <p>Role: <span>Admin</span></p>
+                                <p>Status: <span>ACTIVE</span></p>
+                            </div>
+                          </div>
+                      </nb-tab>
+                      <nb-tab tabTitle="Change Password">
+                          <div class="container">
+                              <div class="row password">
+                                <label for="oldPw">Old Password</label>
+                                <input nbInput shape="semi-round" fullWidth type="text" name="oldPw">
+                                <label class="mt-1" for="oldPw">New Password</label>
+                                <input nbInput shape="semi-round" fullWidth type="text" name="oldPw">
+                                <label class="mt-1" for="oldPw">Confirm Password</label>
+                                <input nbInput shape="semi-round" fullWidth type="text" name="oldPw">
+                            </div>
+                            <button class="mt-4 text-center" nbButton outline size="small" status="success"><nb-icon icon="corner-down-right-outline"></nb-icon> Confirm</button>
+                        </div>
+                      </nb-tab>
+                    </nb-tabset>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

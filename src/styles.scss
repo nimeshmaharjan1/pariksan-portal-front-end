@@ -47,5 +47,10 @@ a{
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+nb-tab p {
+  font-family: var(--labelFont);
+  letter-spacing: 0.5px;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

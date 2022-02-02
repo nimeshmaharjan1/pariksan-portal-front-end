@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
@@ -19,7 +19,8 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent } from './pages/admin/profile/profile.component';
+import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     DashboardComponent,
     UserDashboardComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     NgbModule,
     NbContextMenuModule,
     NbUserModule,
-    MatIconModule
+    MatIconModule,
+    NbTabsetModule,
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
