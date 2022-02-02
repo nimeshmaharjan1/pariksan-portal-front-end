@@ -16,30 +16,40 @@ export class SidebarComponent implements OnInit {
   items: NbMenuItem[] = [
     {
       title: 'Home',
-      icon: 'home-outline',
-      link: '/login'
+      icon: {icon:'home-outline',options: {animation:{ type: 'zoom' }}},
+      link: '/',
+    },
+    {
+      title: 'Dashboard',
+      icon: {icon:'layout-outline',options: {animation:{ type: 'zoom' }}},
+      link: '/admin'
+    },
+    {
+      title: 'Profile',
+      icon: {icon:'smiling-face-outline',options: {animation:{ type: 'zoom' }}},
+      link: '/admin/profile',
     },
     {
       title: 'Categories',
-      icon: 'list-outline',
+      icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
     },
-    {
-      title: 'Sign Up',
-      icon: 'checkmark-circle-outline',
-      link: '/signup'
-    },
-    {
-      title: 'Privacy Policy',
-      icon: { icon: 'checkmark-outline', pack: 'eva' },
-    },
-    {
-      title: 'Login',
-      icon: 'log-in-outline',
-      link: '/login'
-    },
+    // {
+    //   title: 'Sign Up',
+    //   icon: 'checkmark-circle-outline',
+    //   link: '/signup'
+    // },
+    // {
+    //   title: 'Login',
+    //   icon: 'log-in-outline',
+    //   link: '/login'
+    // },
+    // {
+    //   title: 'Privacy Policy',
+    //   icon: { icon: 'checkmark-outline', pack: 'eva' },
+    // },
     {
       title: 'Logout',
-      icon: 'unlock-outline',
+      icon: {icon:'unlock-outline',options: {animation:{ type: 'zoom' }}},
     },
   ];
 }
