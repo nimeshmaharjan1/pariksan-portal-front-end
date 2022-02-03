@@ -15,6 +15,9 @@
   --mainFont: 'Roboto', sans-serif;
   --labelFont: 'Montserrat', sans-serif;
 }
+*{
+  font-family: var(--labelFont);
+}
 .textCenter{
   text-align: center;
 }
