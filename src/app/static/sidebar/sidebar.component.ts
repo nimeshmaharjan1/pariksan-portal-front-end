@@ -80,9 +80,17 @@ export class SidebarComponent implements OnInit {
       icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
     },
     {
-      title: 'Logout',
-      icon: {icon:'unlock-outline',options: {animation:{ type: 'zoom' }}},
+      title: 'Add Category',
+      icon: {icon:'plus-outline',options: {animation:{ type: 'zoom' }}},
     },
+    {
+      title: 'Quizzes',
+      icon: {icon:'book-outline',options: {animation:{ type: 'zoom' }}},
+    },
+    // {
+    //   title: 'Logout',
+    //   icon: {icon:'unlock-outline',options: {animation:{ type: 'zoom' }}},
+    // },
   ];
   
   isLoggedIn: boolean = false;
