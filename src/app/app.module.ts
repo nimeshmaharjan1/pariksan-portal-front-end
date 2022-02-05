@@ -21,6 +21,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.co
     UserDashboardComponent,
     HomeComponent,
     ProfileComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfileComponent,
+    WelcomeUserComponent
   ],
   imports: [
     BrowserModule,

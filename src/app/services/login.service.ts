@@ -62,6 +62,12 @@ export class LoginService {
       return JSON.parse(userStr);
     } else {
       this.logout();
+      //  const authorities = [
+      //   {
+      //     authority: 'none'
+      //   }
+      // ];
+      // return authorities;
       return null;
     }
   }

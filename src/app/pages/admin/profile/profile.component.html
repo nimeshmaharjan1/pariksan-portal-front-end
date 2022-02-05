@@ -16,7 +16,7 @@
                     {{user.firstName}} {{user.lastName}}
                   </h5>
                   <h6>
-                    Web Developer and Designer
+                    {{user.occupation}}
                   </h6>
                 </div>
               </div>
@@ -40,10 +40,10 @@
                     <p>Phone Number - <span>{{user.phone}}</span></p>
                   </li>
                   <li>
-                    <p>Role - <span>{{user.authorities[0].authority}}</span></p>
+                    <p>Role - <span>{{user?.authorities[0]?.authority}}</span></p>
                   </li>
                   <li>
-                    <p>Status - <ng-container *ngIf="user.userEnabled === true;">ACTIVE</ng-container><ng-container *ngIf="user.userEnabled === false;">IN-ACTIVE</ng-container></p>
+                    <p>Status - {{user.userEnabled === true ? 'Active' : 'In-active'}}</p>
                   </li>
                 </ul>
               </nb-tab>

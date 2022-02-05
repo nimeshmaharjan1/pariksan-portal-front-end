@@ -1,0 +1,86 @@
+<div class="container">
+    <h1 class="pageHeader mb-1">Profile</h1>
+    {{user | json}}
+    <div class="col mt-4 mb-5 justify-content-center">
+      <div class="row">
+        <div class="col-md-6">
+          <nb-card size="small">
+            <nb-card-body>
+              <div class="container align-content-center align-items-center">
+                <div class="row">
+                  <div class="text-center mt-4">
+                    <img src="../../../../assets/{{user.profile}}" alt="">
+                  </div>
+                  <div class="text-center mt-4">
+                    <h5 style="color: pink;">
+                      {{user.firstName}} {{user.lastName}}
+                    </h5>
+                    <h6>
+                      Web Developer and Designer
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="col-md-6">
+          <nb-card size="small">
+            <nb-card-body>
+              <nb-tabset>
+                <nb-tab tabTitle="ABOUT" class="mt-2 mb-2">
+                  <ul>
+                    <li>
+                      <p>ID - <span>{{user.id}}</span></p>
+                    </li>
+                    <li>
+                      <p>Username - <span>{{user.username}}</span></p>
+                    </li>
+                    <li>
+                      <p>Phone Number - <span>{{user.phone}}</span></p>
+                    </li>
+                    <li>
+                      <p>Role - <span>{{user?.authorities[0]?.authority}}</span></p>
+                    </li>
+                    <li>
+                      <p>Status - {{user.userEnabled === true ? 'Active' : 'In-active'}}</p>
+                    </li>
+                  </ul>
+                </nb-tab>
+              </nb-tabset>
+            </nb-card-body>
+            <nb-card-footer style="margin-top: -1.8rem;">
+              <div class="container">
+                <button nbButton outline size="small" status="success">
+                  Update
+                </button>
+              </div>
+            </nb-card-footer>
+          </nb-card>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-body>
+            <nb-tabset>
+              <nb-tab tabTitle="Change Password">
+                <div class="container">
+                  <div class="row password mt-1">
+                    <label for="oldPw">Old Password</label>
+                    <input nbInput shape="semi-round" class="mt-2 mb-1" fullWidth type="text" name="oldPw">
+                    <label class="mt-2 mb-1" for="oldPw">New Password</label>
+                    <input nbInput shape="semi-round" fullWidth type="text" name="oldPw">
+                    <label class="mt-2 mb-1" for="oldPw">Confirm Password</label>
+                    <input nbInput shape="semi-round" fullWidth type="text" name="oldPw">
+                  </div>
+                  <button class="mt-4 text-center" nbButton outline size="medium" status="success">
+                    <nb-icon icon="corner-down-right-outline"></nb-icon> Confirm
+                  </button>
+                </div>
+              </nb-tab>
+            </nb-tabset>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </div>

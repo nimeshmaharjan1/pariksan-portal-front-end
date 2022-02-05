@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit {
 
   user;
 
@@ -14,9 +14,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.login.getUser();
-    
+    console.log(this.user.firstName);
   }
-
-  
 
 }

@@ -1,0 +1,21 @@
+img {
+    vertical-align: middle;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+  h5{
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  h5, h6{
+    font-family: var(--labelFont);
+  }
+
+  .table {
+    color: white;
+  }
+
+  .table tr td {
+    padding: 0.5rem;
+  }

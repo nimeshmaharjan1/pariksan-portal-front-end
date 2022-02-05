@@ -23,6 +23,7 @@ export class SignUpComponent implements OnInit {
     lastName: '',
     email: '',
     phone: '',
+    occupation: ''
   }
 
   ngOnInit(): void {

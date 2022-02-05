@@ -10,6 +10,8 @@ import { AdminGuardGuard } from './services/admin-guard.guard';
 import { LoginGuard } from './services/login.guard';
 import { StudentGuard } from './services/student.guard';
 import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 
 const routes: Routes = [
   {
@@ -45,8 +47,17 @@ const routes: Routes = [
   {
     path:'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch:'full',
-    canActivate: [StudentGuard]
+    canActivate: [StudentGuard],
+    children: [
+      {
+        path: 'user-profile',
+        component: UserProfileComponent,
+      },
+      {
+        path: '',
+        component: WelcomeUserComponent,
+      },
+    ]
   },
 ];
 
