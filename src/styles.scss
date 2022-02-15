@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 
 @include nb-install() {
   @include nb-theme-global();
@@ -14,6 +15,7 @@
 :root{
   --mainFont: 'Roboto', sans-serif;
   --labelFont: 'Montserrat', sans-serif;
+  --bodyFont: 'Roboto Mono', monospace;
 }
 *{
   font-family: var(--labelFont);
@@ -53,6 +55,19 @@ a{
 nb-tab p {
   font-family: var(--labelFont);
   letter-spacing: 0.5px;
+}
+
+
+.logo {
+  padding: 0 1.25rem;
+  font-size: 2.2rem;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+  font-family: var(--labelFont);
+  /*@include nb-ltr(border-left, 1px solid nb-theme(divider-color));
+  @include nb-rtl(border-right, 1px solid nb-theme(divider-color));*/
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 html, body { height: 100%; }

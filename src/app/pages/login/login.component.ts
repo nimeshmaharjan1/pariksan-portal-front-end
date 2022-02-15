@@ -47,47 +47,49 @@ export class LoginComponent implements OnInit {
     }
     //REQUEST TO SERVER TO GENERATE TOKEN
     this.login.generateToken(this.loginData).subscribe(
-    //   {
-    //   next: (data: any) => console.log(data),
-    //   error: (e) => console.error(e),
-    //   complete: () => console.log('success')
-      
-    // }
-      (data: any) => {
-        console.log('Success');
-        console.log(data);
-        
-        this.login.loginUser(data.token);
-        this.login.getCurrentUser().subscribe(
-          (user:any) => {
-            this.login.setUser(user);
-            console.log(user);
-            //redirect ADMIN / STUDENT
-            if (this.login.getUserRole() === 'ADMIN') {
-              // window.location.href = '/admin';
-              this.router.navigate(['admin']);
-              this.login.logInStatusSubject.next(true);
-
-            } else if (this.login.getUserRole() === 'STUDENT') {
-              // window.location.href = '/user-dashboard';
-              this.router.navigate(['user-dashboard']);
-              this.login.logInStatusSubject.next(true);
-
-            } else {
-              this.login.logout();
-              location.reload();
-            }
-          });
-      },
-      (error) => {
-        console.log("Error");
-        console.log(error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Please try again.'
-        })
-      }
+      {
+        //   {
+        //   next: (data: any) => console.log(data),
+        //   error: (e) => console.error(e),
+        //   complete: () => console.log('success')
+          
+        // }
+          next: (data: any) => {
+            console.log('Success');
+            console.log(data);
+            
+            this.login.loginUser(data.token);
+            this.login.getCurrentUser().subscribe(
+              (user:any) => {
+                this.login.setUser(user);
+                console.log(user);
+                //redirect ADMIN / STUDENT
+                if (this.login.getUserRole() === 'ADMIN') {
+                  // window.location.href = '/admin';
+                  this.router.navigate(['admin']);
+                  this.login.logInStatusSubject.next(true);
+    
+                } else if (this.login.getUserRole() === 'STUDENT') {
+                  // window.location.href = '/user-dashboard';
+                  this.router.navigate(['user-dashboard']);
+                  this.login.logInStatusSubject.next(true);
+    
+                } else {
+                  this.login.logout();
+                  location.reload();
+                }
+              });
+          },
+          error: (error) => {
+            console.log("Error");
+            console.log(error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Please try again.'
+            })
+          }
+        }
     )
   }
 }
