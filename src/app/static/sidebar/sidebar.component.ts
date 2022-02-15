@@ -78,6 +78,7 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Categories',
       icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
+      link: '/admin/categories'
     },
     {
       title: 'Add Category',
@@ -100,6 +101,6 @@ export class SidebarComponent implements OnInit {
   constructor(public login: LoginService) { }
 
   ngOnInit(): void {
-    console.log(this.login.isLoggedIn());
+    console.log('login: ', this.login.isLoggedIn());
   }
 }

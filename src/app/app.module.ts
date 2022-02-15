@@ -23,6 +23,8 @@ import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.com
     ProfileComponent,
     WelcomePageComponent,
     UserProfileComponent,
-    WelcomeUserComponent
+    WelcomeUserComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
