@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
       link: '/',
     },
     {
-      title: 'Categories',
+      title: 'About Us',
       icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
     },
     {
@@ -79,10 +79,6 @@ export class SidebarComponent implements OnInit {
       title: 'Categories',
       icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
       link: '/admin/categories'
-    },
-    {
-      title: 'Add Category',
-      icon: {icon:'plus-outline',options: {animation:{ type: 'zoom' }}},
     },
     {
       title: 'Quizzes',

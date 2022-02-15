@@ -51,8 +51,8 @@ export class SignUpComponent implements OnInit {
           title: 'Username exists.',
           text: 'User with that username already exists.'});
         }
-        )
       }
+    )
   }
 
 }
