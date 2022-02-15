@@ -52,7 +52,8 @@ export class ViewCategoriesComponent implements OnInit {
     this.categoryService.addCategory(this.addCategoryForm).subscribe(
       {
         next: (data: any) => {
-          Swal.fire('Success','The category has been successfully added.','success');setTimeout(()=>{
+          Swal.fire('Success','The category has been successfully added.','success');
+          setTimeout(()=>{
             window.location.reload();
           }, 4000)
         },
