@@ -1,18 +1,19 @@
-<div class="col-md-12"><h1 class="pageHeader">Category</h1>
+<div class="col-md-12">
+  <h1 class="pageHeader">Category</h1>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <nb-card size="medium">
                 <nb-card-header>
-                    <h4 class="header">
+                    <h4 class="card-title">
                         Categories
                     </h4>
                 </nb-card-header>
               <nb-list>
                 <nb-list-item *ngFor="let category of categories" class="pt-4">
                   <div class="container-fluid">
-                    <h4 class="title">
+                    <h4 class="list-title">
                       <nb-icon nbPrefix icon="folder-outline" pack="eva"></nb-icon>
                       {{category?.title}}
                       <div class="col-md-12">
@@ -37,7 +38,7 @@
                       <nb-tab tabTitle="Add Category">
                         <div class="container-fluid">
                           <div class="row password mt-1">
-                              {{addCategoryForm | json}}
+                              <!-- {{addCategoryForm | json}} -->
                             <form (ngSubmit)="formSubmit()">
                                 <label for="title" class="addTitle">Title</label>
                                 <nb-form-field>
@@ -56,6 +57,8 @@
                           </div>
                         </div>
                       </nb-tab>
+                      <!-- <nb-tab [routerLink]="'/admin/categories/' + categories.categoryId" tabTitle="Update Category">
+                      </nb-tab> -->
                     </nb-tabset>
                 </nb-card-body>
             </nb-card>

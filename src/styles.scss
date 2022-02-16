@@ -60,7 +60,7 @@ nb-tab p {
 
 .logo {
   padding: 0 1.25rem;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   letter-spacing: 1.5px;
   font-family: var(--labelFont);
@@ -68,6 +68,19 @@ nb-tab p {
   @include nb-rtl(border-right, 1px solid nb-theme(divider-color));*/
   white-space: nowrap;
   text-decoration: none;
+}
+
+.card-title {
+  font-family: var(--labelFont);
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-size: 2.5rem;
+  margin-top: 0.2rem;
+}
+
+.list-title {
+    font-family: var(--bodyFont);
+    font-size: 1.2rem;
 }
 
 html, body { height: 100%; }

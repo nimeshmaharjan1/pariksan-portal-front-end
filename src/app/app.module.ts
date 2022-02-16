@@ -25,6 +25,8 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
     UserProfileComponent,
     WelcomeUserComponent,
     ViewCategoriesComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    UpdateCategoryComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
     NbUserModule,
     MatIconModule,
     NbTabsetModule,
-    NbListModule
+    NbListModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

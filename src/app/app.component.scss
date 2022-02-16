@@ -58,20 +58,11 @@ z-index: 100;
 nb-layout-header{
 box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
-// nb-action{
-//     color:#ffffff;
-// }
-// nb-icon{
-//     color:#ffffff;
-// }
 .control-item{
     // color:#ffffff;
     font-family: var(--labelFont);
     letter-spacing: 1px;
 }
-// ::ng-deep nb-action nb-icon {
-//     color:#ffffff !important;
-//   }
   ::ng-deep nb-action{
     cursor: pointer;
   }  
@@ -85,7 +76,12 @@ box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   
   }
 
-  .logout-item:hover{
+
+  .logout-item{ // <a> starts here
     transition: all 0.5s ease-out;
-    color: red;
+
+    &:hover { 
+      color: red; 
+    }
   }
+

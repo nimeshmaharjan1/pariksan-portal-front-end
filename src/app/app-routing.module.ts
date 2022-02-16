@@ -13,6 +13,8 @@ import { WelcomePageComponent } from './pages/admin/welcome-page/welcome-page.co
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
       {
         path: 'categories',
         component: ViewCategoriesComponent
+      },
+      {
+        path: 'update-category/:categoryId',
+        component: UpdateCategoryComponent
+      },
+      {
+        path: 'quizzes',
+        component: ViewQuizzesComponent
       }
     ]
   },

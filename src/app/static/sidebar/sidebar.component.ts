@@ -83,6 +83,7 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Quizzes',
       icon: {icon:'book-outline',options: {animation:{ type: 'zoom' }}},
+      link: 'admin/quizzes'
     },
     // {
     //   title: 'Logout',

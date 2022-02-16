@@ -55,7 +55,7 @@ export class ViewCategoriesComponent implements OnInit {
           Swal.fire('Success','The category has been successfully added.','success');
           setTimeout(()=>{
             window.location.reload();
-          }, 4000)
+          }, 3000)
         },
         error: (err) => {
           console.log(err);
@@ -74,7 +74,7 @@ export class ViewCategoriesComponent implements OnInit {
           Swal.fire('Success','The category has been successfully added.','success');
           setTimeout(()=>{
             window.location.reload();
-          }, 4000)
+          }, 3000)
         },
         error: (err) => {
           console.log(err);
