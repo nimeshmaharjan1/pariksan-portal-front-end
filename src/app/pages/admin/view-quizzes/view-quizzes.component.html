@@ -51,18 +51,52 @@
       </nb-card>
     </nb-card-front>
     <nb-card-back>
-      <nb-card accent="danger">
+      <nb-card accent="danger" size="large">
         <nb-card-header class="card-title">
             Add Quizzes
         </nb-card-header>
-        <nb-card-body>
-          Back
-        </nb-card-body>
-        <nb-card-footer>
-          <button nbButton size="small" status="danger" (click)="toggleFlip()">
-              Back
-          </button>
-        </nb-card-footer>
-      </nb-card>
-    </nb-card-back>
+          <nb-card-body>
+                    <form (ngSubmit)="addQuiz()" style="margin-top: -1.5rem;">
+                      <label for="title" class="addTitle">Title</label>
+                      <nb-form-field>
+                        <input placeholder="Enter the title here" required nbInput shape="semi-round" fullWidth type="text" name="title"
+                          [(ngModel)]="addQuizForm.title">
+                      </nb-form-field>
+                      <label class="addTitle" for="Description">Description</label>
+                      <nb-form-field>
+                        <textarea nbInput rows="5" shape="semi-round" fullWidth
+                        placeholder="Enter the description here" name="description"
+                          [(ngModel)]="addQuizForm.description"></textarea>
+                      </nb-form-field>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label for="numberOfQuestions" class="addTitle">Number of Questions</label>
+                          <nb-form-field>
+                            <input placeholder="Enter the total number of questions here" required nbInput shape="semi-round" fullWidth type="text" name="numberOfQuestions"
+                              [(ngModel)]="addQuizForm.numberOfQuestions">
+                          </nb-form-field>
+                          <nb-select class="mt-3" placeholder="Select the category" [(ngModel)]="addQuizForm.category.categoryId" name="category">
+                            <nb-option *ngFor="let category of categories" [value]="category.categoryId">{{category.title}}</nb-option>
+                            </nb-select>
+                          <nb-toggle class="m-4" labelPosition="left" [(ngModel)]="addQuizForm.active" name="active" status="danger">Publish Status</nb-toggle>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="maximumMarks" class="addTitle">Maximum Marks</label>
+                          <nb-form-field>
+                            <input placeholder="Enter the maximum marks here" required nbInput shape="semi-round" fullWidth type="text" name="maximumMarks"
+                              [(ngModel)]="addQuizForm.maxMarks">
+                          </nb-form-field>
+                        </div>
+                      </div>
+                      <button class="m-2" nbButton outline size="small" status="success"> Add quiz
+                      </button>
+                    </form>
+          </nb-card-body>
+          <nb-card-footer>
+            <button nbButton size="small" status="danger" (click)="toggleFlip()">
+                Back
+            </button>
+          </nb-card-footer>
+        </nb-card>
+        </nb-card-back>
   </nb-flip-card>

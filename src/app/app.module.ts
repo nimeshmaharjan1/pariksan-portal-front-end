@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
@@ -27,6 +27,7 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { config } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,9 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
     MatIconModule,
     NbTabsetModule,
     NbListModule,
+    NbDialogModule.forRoot(),
+    NbToggleModule,
+    NbSelectModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

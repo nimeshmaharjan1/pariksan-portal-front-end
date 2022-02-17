@@ -24,13 +24,11 @@ export class ViewCategoriesComponent implements OnInit {
       
       next: (data: any) => {
         this.categories = data;
-        console.log('data ', this.categories);
-        this.categoriesDataFromApi = this.categories;
+        Swal.fire('Success', 'The categories have been successfully fetched.', 'success');
       },
       error: (error) => {
         console.log(error);
         //Error
-        console.log(error)
         Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -38,7 +36,6 @@ export class ViewCategoriesComponent implements OnInit {
       }
     }
     )
-    console.log('categoriesfromaapi: ', this.categoriesDataFromApi);
     
   }
 
@@ -68,12 +65,11 @@ export class ViewCategoriesComponent implements OnInit {
   }
 
   deleteCategory(categoryId) {
-    console.log(categoryId);
     
     this.categoryService.deleteCategory(categoryId).subscribe(
       {
         next: (data:any) => {
-          Swal.fire('Success','The category has been successfully added.','success');
+          Swal.fire('Success','The category has been successfully deleted.','success');
           setTimeout(()=>{
             window.location.reload();
           }, 3000)

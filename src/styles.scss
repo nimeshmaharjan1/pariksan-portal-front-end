@@ -86,6 +86,20 @@ nb-tab p {
   font-family: var(--bodyFont);
   font-size: 0.9rem;
 }
+.addTitle {
+    font-family: var(--bodyFont);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
 
+input, textarea, nb-toggle {
+  font-family: var(--labelFont) !important;
+  font-size: 12px !important;
+}
+
+::-webkit-input-placeholder {
+  font-size: 11px !important;
+  font-family: var(--labelFont) !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
