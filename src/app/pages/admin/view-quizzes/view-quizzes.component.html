@@ -1,27 +1,53 @@
-<nb-flip-card>
+<nb-flip-card [flipped]="flipped" [showToggleButton]="false">
     <nb-card-front>
-      <nb-card accent="danger">
-        <nb-card-body>
-            <div class="card-title pb-3 pt-2">
+      <nb-card size="large" accent="danger">
+        <nb-card-header>
+              <h4 class="card-title">
                 Quizzes
-            </div>
+              </h4>
+        </nb-card-header>
             <nb-list>
                 <nb-list-item *ngFor="let quiz of quizzes">
-                    <img class="m-2 " src="../../../../assets/quiz.png" alt="">
-                    <div class="list-title">
-                            <a>
-                                {{quiz.title}}
-                            </a>
-                        <button nbButton class="m-3" size="small" status="success" outline>
-                            Update
-                        </button>
-                        <button nbButton size="small" outline class="delete-btn">
-                            Delete
-                        </button>
+                    <div class="container">
+                      <div class="d-flex justify-content-start align-items-center">
+                        <img class="m-2 " src="../../../../assets/quiz.png" alt="Image for quizzes">
+                        <div>
+                          <h4 class="list-title pt-2">
+                            {{quiz.title}} <br>
+                            <span class="subheader">{{quiz.category.title}}</span>
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="container m-2">
+                          <button nbButton ghost size="small" status="danger">
+                            Maxium Marks: {{quiz.maxMarks}}
+                          </button>
+                          <button nbButton ghost size="small" status="danger">
+                            Questions: {{quiz.numberOfQuestions}}
+                          </button>
+                          <button nbButton ghost size="small" status="danger">
+                            Attemps: {{quiz.numberOfQuestions}}
+                          </button>
+                      </div>
+                        <div class="container">
+                          <button nbButton class="m-1" size="small" status="primary">
+                              Questions
+                          </button>
+                          <button nbButton class="m-3" size="small" status="primary">
+                              Update
+                          </button>
+                          <button class="m-1" nbButton size="small" outline>
+                              <nb-icon icon="trash" status="danger"></nb-icon>
+                          </button>
+                        </div>
                     </div>
                 </nb-list-item>
             </nb-list>
-        </nb-card-body>
+        <nb-card-footer>
+          <button nbButton size="small" outline status="success" (click)="toggleFlip()">
+              add
+          </button>
+        </nb-card-footer>
       </nb-card>
     </nb-card-front>
     <nb-card-back>
@@ -32,6 +58,11 @@
         <nb-card-body>
           Back
         </nb-card-body>
+        <nb-card-footer>
+          <button nbButton size="small" status="danger" (click)="toggleFlip()">
+              Back
+          </button>
+        </nb-card-footer>
       </nb-card>
     </nb-card-back>
   </nb-flip-card>

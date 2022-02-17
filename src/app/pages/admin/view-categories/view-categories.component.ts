@@ -15,6 +15,8 @@ export class ViewCategoriesComponent implements OnInit {
   }
   categoriesDataFromApi = [];
 
+  public flipped;
+
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
@@ -83,6 +85,10 @@ export class ViewCategoriesComponent implements OnInit {
         }
       }
     )
+  }
+
+  toggleFlip() {
+    this.flipped = !this.flipped;
   }
 
 }

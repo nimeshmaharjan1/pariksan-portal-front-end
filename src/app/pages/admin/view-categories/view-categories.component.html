@@ -1,67 +1,75 @@
-<div class="col-md-12">
+<!-- <div class="col-md-12">
   <h1 class="pageHeader">Category</h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <nb-card size="medium">
-                <nb-card-header>
-                    <h4 class="card-title">
-                        Categories
-                    </h4>
-                </nb-card-header>
-              <nb-list>
-                <nb-list-item *ngFor="let category of categories" class="pt-4">
-                  <div class="container-fluid">
-                    <h4 class="list-title">
-                      <nb-icon nbPrefix icon="folder-outline" pack="eva"></nb-icon>
-                      {{category?.title}}
-                      <div class="col-md-12">
-                        <p class="description mt-2">
-                          {{category?.description}}
-                          {{category?.categoryId}}
-                        </p>
-                      </div>
-                    </h4>
-                    <button class="delete" (click)="deleteCategory(category.categoryId)">
-                        <nb-icon icon="trash-outline"></nb-icon>
-                    </button>
-                  </div>
-                </nb-list-item>
-              </nb-list>
-            </nb-card>
-        </div>
-        <div class="col-md-6">
-            <nb-card size="medium">
-                <nb-card-body>
-                    <nb-tabset>
-                      <nb-tab tabTitle="Add Category">
-                        <div class="container-fluid">
-                          <div class="row password mt-1">
-                              <!-- {{addCategoryForm | json}} -->
-                            <form (ngSubmit)="formSubmit()">
-                                <label for="title" class="addTitle">Title</label>
-                                <nb-form-field>
-                                    <nb-icon nbPrefix icon="text-outline"></nb-icon>
-                                    <input required nbInput shape="semi-round" class="mt-1 mb-1" fullWidth type="text" name="title" [(ngModel)]="addCategoryForm.title">
-                                </nb-form-field>
-                                <label class="addTitle" for="Description" style="margin-top: 1rem;">Description</label>
-                                <nb-form-field>
-                                    <!-- <nb-icon nbPrefix icon="message-square-outline" pack="eva"></nb-icon> -->
-                                    <textarea nbInput rows="5" class="mt-1" shape="semi-round" fullWidth placeholder="Enter the category's description" name="description" [(ngModel)]="addCategoryForm.description"></textarea>
-                                </nb-form-field>
-                                <button class="mt-4" nbButton outline size="small" status="success">
-                                  <nb-icon nbPrefix icon="corner-down-right-outline"></nb-icon> Add
-                                </button>
-                            </form>
-                          </div>
-                        </div>
-                      </nb-tab>
-                      <!-- <nb-tab [routerLink]="'/admin/categories/' + categories.categoryId" tabTitle="Update Category">
-                      </nb-tab> -->
-                    </nb-tabset>
-                </nb-card-body>
-            </nb-card>
-        </div>
-    </div>
-</div>
+</div> -->
+<nb-flip-card [flipped]="flipped" [showToggleButton] = false >
+  <nb-card-front>
+    <nb-card size="large">
+      <nb-card-header>
+            <h4 class="card-title">
+              Categories
+            </h4>
+      </nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let category of categories" class="pt-4">
+          <div class="container-fluid">
+            <h4 class="list-title">
+              <nb-icon nbPrefix icon="folder-outline" pack="eva"></nb-icon>
+              {{category?.title}}
+              <div class="col-md-12">
+                <p class="description mt-2">
+                  {{category?.description}}
+                  <!-- {{category?.categoryId}} -->
+                </p>
+              </div>
+            </h4>
+            <button nbButton size="small" outline class="delete m-2 p-2" (click)="deleteCategory(category.categoryId)">
+              <nb-icon nbPrefix icon="trash" status="danger"></nb-icon>
+            </button>
+          </div>
+        </nb-list-item>
+      </nb-list>
+      <nb-card-footer>
+        <button nbButton size="small" outline status="success" (click)="toggleFlip()">
+            Add category
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card size="large">
+      <nb-card-body>
+        <nb-tabset>
+          <nb-tab tabTitle="Add Category" id="addCategory">
+              <div class="row password mt-3">
+                <!-- {{addCategoryForm | json}} -->
+                <form (ngSubmit)="formSubmit()">
+                  <label for="title" class="addTitle">Title</label>
+                  <nb-form-field>
+                    <nb-icon nbPrefix icon="text-outline"></nb-icon>
+                    <input required nbInput shape="semi-round" class="mt-1 mb-1" fullWidth type="text" name="title"
+                      [(ngModel)]="addCategoryForm.title">
+                  </nb-form-field>
+                  <label class="addTitle" for="Description" style="margin-top: 1rem;">Description</label>
+                  <nb-form-field>
+                    <!-- <nb-icon nbPrefix icon="message-square-outline" pack="eva"></nb-icon> -->
+                    <textarea nbInput rows="7" class="mt-1" shape="semi-round" fullWidth
+                      placeholder="Enter the category's description" name="description"
+                      [(ngModel)]="addCategoryForm.description"></textarea>
+                  </nb-form-field>
+                  <button class="m-2" nbButton outline size="small" status="success"> Add
+                  </button>
+                </form>
+              </div>
+          </nb-tab>
+          <!-- <nb-tab [routerLink]="'/admin/categories/' + categories.categoryId" tabTitle="Update Category">
+                          </nb-tab> -->
+        </nb-tabset>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton size="small" status="danger" (click)="toggleFlip()">
+            Back
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>

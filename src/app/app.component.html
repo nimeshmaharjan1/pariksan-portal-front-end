@@ -3,10 +3,8 @@
   <nb-layout-header fixed>
     <div class="header-container hidden-print">
       <div class="logo-container">
-        <button style="height: 35px;width: 45px;" nbButton status="danger" outline size="medium"
-          (click)="toggleCompact()">
-          <nb-icon icon="menu"></nb-icon>
-        </button>
+          <nb-icon class="toggle m-2" (click) = toggleCompact() *ngIf="isCompact" icon="arrowhead-right-outline"></nb-icon>
+          <nb-icon class="toggle m-2" (click) = toggleCompact() *ngIf="!isCompact" icon="arrowhead-left-outline"></nb-icon>
         <!-- <a class="logo" [routerLink]="['']">Pariksan Portal</a> -->
       </div>
     </div>

@@ -1,4 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-quizzes',
@@ -7,34 +9,30 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class ViewQuizzesComponent implements OnInit {
 
-  quizzes = [
-    {
-    quizId: 20,
-    title: 'Basic Java Programming',
-    description: 'Quiz for basic Java Core Syntax.',
-    maxMarks: '50',
-    numberOfQuestions: '20',
-    active: '',
-    category: {
-      title: 'Programming'
-    }
-  },
-  {
-    quizId: 21,
-    title: 'Basic Java Programming',
-    description: 'Quiz for basic Java Core Syntax.',
-    maxMarks: '50',
-    numberOfQuestions: '20',
-    active: '',
-    category: {
-      title: 'Programming'
-    }
-  },
-]
-  constructor() { }
+  quizzes = []
+public flipped;
+
+  constructor(private quizzesService: QuizService) { }
 
   ngOnInit(): void {
+    this.quizzesService.getQuizzes().subscribe(
+      {
+        next: (data:any) => {
+          this.quizzes = data;
+          Swal.fire('Success','Quizzes have been successfully fetched.','success')
+        },
+        error: (err) => {
+          console.log(err);
+          Swal.fire('Error','Quizzes could not be fetched.','info')
+          
+        }
+      }
+    )
     
   }
+toggleFlip(){
+  this.flipped = !this.flipped;
+}
+
 
 }

@@ -4,7 +4,6 @@ nb-icon {
 
 nb-card {
     text-align: justify;
-    margin-top: 9rem;
   }
 .description {
     font-family: var(--labelFont);
@@ -16,6 +15,7 @@ nb-card {
 .addTitle {
     font-family: var(--bodyFont);
     font-size: 1rem;
+    margin-bottom: 0.3rem;
 }
 
 // ::-webkit-input-placeholder {

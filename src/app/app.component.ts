@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
 
   layout: any = {};
   sidebar: any = {};
+  isCompact = true;
 
   private alive = true;
 
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
   
   toggleCompact() {
     this.sidebarService.toggle(true);
+    this.isCompact = !this.isCompact;
 }
 
 public logout(){
