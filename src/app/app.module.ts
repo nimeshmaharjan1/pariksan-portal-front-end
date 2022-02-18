@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,8 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { config } from 'rxjs';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinner.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { config } from 'rxjs';
     ViewCategoriesComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    ViewQuizzesComponent
+    ViewQuizzesComponent,
+    NgxSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +77,10 @@ import { config } from 'rxjs';
     NbListModule,
     NbDialogModule.forRoot(),
     NbToggleModule,
-    NbSelectModule
+    NbSelectModule,
+    NgxSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

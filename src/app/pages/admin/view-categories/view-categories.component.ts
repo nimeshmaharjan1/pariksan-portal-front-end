@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CategoryService } from 'src/app/services/category.service';
 import { SwalService } from 'src/app/services/swal-service/swal.service';
 import Swal from 'sweetalert2';
@@ -19,17 +20,20 @@ export class ViewCategoriesComponent implements OnInit {
   public flipped;
 
   constructor(private categoryService: CategoryService,
-    private swalService: SwalService
+    private swalService: SwalService,
+    private ngxSpinner: NgxSpinnerService
     ) { }
 
   ngOnInit(): void {
+    this.ngxSpinner.show();
     this.categoryService.categories().subscribe({
-      
       next: (data: any) => {
+        this.ngxSpinner.hide();
         this.categories = data;
         Swal.fire('Success', 'The categories have been successfully fetched.', 'success');
       },
       error: (error) => {
+        this.ngxSpinner.hide();
         console.log(error);
         //Error
         Swal.fire({
@@ -51,15 +55,18 @@ export class ViewCategoriesComponent implements OnInit {
     }
 
     //ADD CATEGORY
+    this.ngxSpinner.show();
     this.categoryService.addCategory(this.addCategoryForm).subscribe(
       {
         next: (data: any) => {
+          this.ngxSpinner.show();
           Swal.fire('Success','The category has been successfully added.','success');
           setTimeout(()=>{
             window.location.reload();
           }, 3000)
         },
         error: (err) => {
+          this.ngxSpinner.show();
           console.log(err);
           Swal.fire('Error','Please try again.','error');
         }

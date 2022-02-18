@@ -1,42 +1,75 @@
 <div class="container">
   <div>
-  <h1 class="pageHeader">Register Here</h1>
-</div>
-<div class="container">
-  <nb-card style="margin-bottom: 3rem;margin-top: 8rem">
-    <nb-card-body>
-      <form (ngSubmit)="formSubmit()">
-        <label>Username</label>
-        <input type="text" [(ngModel)]="user.username" name="username" nbInput fullWidth fieldSize="large"
-          status="primary" shape="semi-round" placeholder="Enter your username here">
-        <label>Password</label>
-        <input type="password" [(ngModel)]="user.password" name="password" nbInput fullWidth fieldSize="large"
-          status="primary" shape="semi-round" placeholder="Enter your password here">
-        <label>First Name</label>
-        <input type="text" [(ngModel)]="user.firstName" name="firstName" nbInput fullWidth fieldSize="large"
-          status="primary" shape="semi-round" placeholder="Enter your first name here">
-        <label>Last Name</label>
-        <input type="text" [(ngModel)]="user.lastName" name="lastName" nbInput fullWidth fieldSize="large"
-          status="primary" shape="semi-round" placeholder="Enter your last name here">
-        <label>E-mail</label>
-        <input type="text" [(ngModel)]="user.email" name="email" nbInput fullWidth fieldSize="large" status="primary"
-          shape="semi-round" placeholder="Enter your e-mail address here">
-        <label>Phone Number</label>
-        <input type="text" [(ngModel)]="user.occupation" name="occupation" nbInput fullWidth fieldSize="large" status="primary"
-          shape="semi-round" placeholder="Enter your occupation here.">
-        <label>Occupation</label>
-        <input type="text" [(ngModel)]="user.phone" name="phone" nbInput fullWidth fieldSize="large" status="primary"
-          shape="semi-round" placeholder="Enter your phone number here">
-        <div class="container textCenter mt-1 mb-2">
-          <button type="submit" class="registerBtn" nbButton status="danger" size="small">
-            Register
-          </button>
-          <button class="registerBtn" nbButton outline status="primary" size="small">
-            Clear Fields
-          </button>
-        </div>
-      </form>
-    </nb-card-body>
-  </nb-card>
-</div>
+    <h1 class="pageHeader">Register Here</h1>
+  </div>
+  <div class="container">
+    <nb-card style="margin-bottom: 3rem;margin-top: 8rem">
+      <nb-card-body>
+        <form (ngSubmit)="formSubmit()">
+          <label>Username</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
+            <input type="text" [(ngModel)]="user.username" name="username" nbInput fullWidth fieldSize="large"
+              status="primary" shape="semi-round" placeholder="Enter your username here">
+          </nb-form-field>
+          <label>Password</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="eye-off-2-outline" pack="eva">
+            </nb-icon>
+            <input type="password" [(ngModel)]="user.password" name="password" nbInput fullWidth fieldSize="large"
+              status="primary" shape="semi-round" placeholder="Enter your password here">
+          </nb-form-field>
+          <label>First Name</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="more-horizontal-outline" pack="eva">
+            </nb-icon>
+            <input type="text" [(ngModel)]="user.firstName" name="firstName" nbInput fullWidth fieldSize="large"
+              status="primary" shape="semi-round" placeholder="Enter your first name here">
+            </nb-form-field>
+          <label>Last Name</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="more-horizontal-outline" pack="eva">
+            </nb-icon>
+            <input type="text" [(ngModel)]="user.lastName" name="lastName" nbInput fullWidth fieldSize="large"
+              status="primary" shape="semi-round" placeholder="Enter your last name here">
+            </nb-form-field>
+          <label>E-mail</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="at-outline" pack="eva">
+            </nb-icon>
+            <input type="text" [(ngModel)]="user.email" name="email" nbInput fullWidth fieldSize="large" status="primary"
+              shape="semi-round" placeholder="Enter your e-mail address here">
+            </nb-form-field>
+          <label>Phone Number</label>
+          <nb-form-field>
+            <nb-icon nbPrefix icon="bell-outline" pack="eva">
+            </nb-icon>
+            <input type="text" [(ngModel)]="user.phone" name="phone" nbInput fullWidth fieldSize="large" status="primary"
+              shape="semi-round" placeholder="Enter your phone number here">
+            </nb-form-field>
+            <ng-container *ngIf="user.isStudent === false">
+              <label>Occupation</label>
+              <nb-form-field>
+                <nb-icon nbPrefix icon="briefcase-outline" pack="eva">
+                </nb-icon>
+                <input type="text" [(ngModel)]="user.occupation" name="occupation" nbInput fullWidth fieldSize="large"
+                  status="primary" shape="semi-round" placeholder="Enter your occupation here.">
+                </nb-form-field>
+              </ng-container>
+              <div class="mb-3 mt-1" style="margin-left: -3px;">
+                <nb-toggle labelPosition="left" [(ngModel)]="user.isStudent" name="isStudent"><label>Are you a Student?</label></nb-toggle>
+              </div>
+
+          <div class="container textCenter mt-1 mb-2">
+            <button type="submit" class="registerBtn" nbButton status="danger" size="small">
+              Register
+            </button>
+            <button type="button" class="registerBtn" nbButton outline status="primary" size="small" (click)="clear()">
+              Clear Fields
+            </button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>

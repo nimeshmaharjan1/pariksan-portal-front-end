@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -10,13 +11,21 @@ export class ProfileComponent implements OnInit {
 
   user;
 
-  constructor(private login: LoginService) { }
+  constructor(private login: LoginService,
+    private spinner: NgxSpinnerService
+    ) { }
 
   ngOnInit(): void {
-    this.user = this.login.getUser();
-    
+    this.spinner.show();
+    this.getUser();
   }
 
+  getUser() {
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 4000)
+    this.user = this.login.getUser();
+  }
   
 
 }

@@ -4,6 +4,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import {
   CategoryService
 } from 'src/app/services/category.service';
@@ -39,16 +40,20 @@ export class ViewQuizzesComponent implements OnInit {
 
   constructor(private quizzesService: QuizService,
     private categoryService: CategoryService,
-    private swalService: SwalService
+    private swalService: SwalService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.quizzesService.getQuizzes().subscribe({
       next: (data: any) => {
+        this.spinner.hide();
         this.quizzes = data;
         Swal.fire('Success', 'Quizzes have been successfully fetched.', 'success')
       },
       error: (err) => {
+        this.spinner.hide();
         console.log(err);
         Swal.fire('Error', 'Quizzes could not be fetched.', 'info')
 
@@ -56,9 +61,11 @@ export class ViewQuizzesComponent implements OnInit {
     })
     this.categoryService.categories().subscribe({
       next: (data: any) => {
+        this.spinner.hide();
         this.categories = data;
       },
       error: (err) => {
+        this.spinner.hide();
         console.log(err);
       }
     })
@@ -69,26 +76,32 @@ export class ViewQuizzesComponent implements OnInit {
   }
 
   addQuiz() {
+    this.spinner.show();
     if (this.addQuizForm.title === '') {
+      this.spinner.hide();
       Swal.fire('Error', 'Title cannot be blank.', 'error');
       return;
     }
     if (this.addQuizForm.description === '' || this.addQuizForm.maxMarks === '') {
+      this.spinner.hide();
       Swal.fire('Error', 'Fields cannot be blank.', 'error');
       return;
     }
     if (this.addQuizForm.category === null) {
+      this.spinner.hide();
       Swal.fire('Error', 'Category cannot be empty.', 'error');
       return;
     }
     this.quizzesService.addQuiz(this.addQuizForm).subscribe({
       next: (data: any) => {
+        this.spinner.hide();
         Swal.fire('Success', 'Quiz has been successfully added.', 'success');
         setTimeout(() => {
           location.reload();
         }, 3000)
       },
       error: (err) => {
+        this.spinner.hide();
         Swal.fire('Error', 'Something went wrong, please try again.', 'error');
       }
     })
@@ -104,16 +117,19 @@ export class ViewQuizzesComponent implements OnInit {
       })
       .then(
         (result) => {
+          this.spinner.show();
           if (result.isConfirmed) {
             //if Deleted
             this.quizzesService.deleteQuiz(quizId).subscribe({
               next: (data: any) => {
+                this.spinner.hide();
                 this.quizzes = this.quizzes.filter(
                   (quiz) => quiz.quizId !== quizId
                 );
                 // this.swalService.swalConfirmMethod('Are you sure?', 'info', 'Delete', true );
               },
               error: (err) => {
+                this.spinner.hide();
                 Swal.fire('Error', 'Something went wrong, please try again.', 'error');
                 console.log(err);
 

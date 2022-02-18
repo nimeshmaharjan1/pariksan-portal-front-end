@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
@@ -16,14 +17,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private login: LoginService,
     private router: Router,
+    private spinner: NgxSpinnerService
     ) { }
 
   ngOnInit(): void {
   }
 
   formSubmit(){
+    this.spinner.show();
     console.log("Login button clicked")
     if (this.loginData.username.trim() === '' || this.loginData.username === null && this.loginData.password.trim() === '' || this.loginData.password === null) {
+      this.spinner.hide();
       Swal.fire({
         icon: 'error',
         title: 'Validation',
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit {
       })
       return;
     } else if (this.loginData.username.trim() === '' || this.loginData.username === null) {
+      this.spinner.hide();
       Swal.fire({
         icon: 'error',
         title: 'Validation',
@@ -38,6 +43,7 @@ export class LoginComponent implements OnInit {
       })
       return;
     } else if (this.loginData.password.trim() === '' || this.loginData.password === null) {
+      this.spinner.hide();
       Swal.fire({
         icon: 'error',
         title: 'Validation',
@@ -48,13 +54,8 @@ export class LoginComponent implements OnInit {
     //REQUEST TO SERVER TO GENERATE TOKEN
     this.login.generateToken(this.loginData).subscribe(
       {
-        //   {
-        //   next: (data: any) => console.log(data),
-        //   error: (e) => console.error(e),
-        //   complete: () => console.log('success')
-          
-        // }
           next: (data: any) => {
+            this.spinner.hide();
             console.log('Success');
             console.log(data);
             
@@ -65,22 +66,26 @@ export class LoginComponent implements OnInit {
                 console.log(user);
                 //redirect ADMIN / STUDENT
                 if (this.login.getUserRole() === 'ADMIN') {
+                  this.spinner.hide();
                   // window.location.href = '/admin';
                   this.router.navigate(['admin']);
                   this.login.logInStatusSubject.next(true);
     
                 } else if (this.login.getUserRole() === 'STUDENT') {
+                  this.spinner.hide();
                   // window.location.href = '/user-dashboard';
                   this.router.navigate(['user-dashboard']);
                   this.login.logInStatusSubject.next(true);
     
                 } else {
+                  this.spinner.hide();
                   this.login.logout();
                   location.reload();
                 }
               });
           },
           error: (error) => {
+            this.spinner.hide();
             console.log("Error");
             console.log(error);
             Swal.fire({
