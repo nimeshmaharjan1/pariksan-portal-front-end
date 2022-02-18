@@ -101,5 +101,8 @@ input, textarea, nb-toggle {
   font-size: 11px !important;
   font-family: var(--labelFont) !important;
 }
+.toggle-label {
+  letter-spacing: 1px;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
@@ -30,6 +30,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { config } from 'rxjs';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinner.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinne
     AddCategoryComponent,
     UpdateCategoryComponent,
     ViewQuizzesComponent,
-    NgxSpinnerComponent
+    NgxSpinnerComponent,
+    UpdateQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +81,7 @@ import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinne
     NbToggleModule,
     NbSelectModule,
     NgxSpinnerModule,
+    NbToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],

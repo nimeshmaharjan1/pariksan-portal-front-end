@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
                 if (this.login.getUserRole() === 'ADMIN') {
                   this.spinner.hide();
                   // window.location.href = '/admin';
-                  this.router.navigate(['admin']);
+                  this.router.navigate(['admin/profile']);
                   this.login.logInStatusSubject.next(true);
     
                 } else if (this.login.getUserRole() === 'STUDENT') {

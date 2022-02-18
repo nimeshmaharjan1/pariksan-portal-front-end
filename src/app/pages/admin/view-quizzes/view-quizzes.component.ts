@@ -4,6 +4,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {
   CategoryService
@@ -41,6 +42,7 @@ export class ViewQuizzesComponent implements OnInit {
   constructor(private quizzesService: QuizService,
     private categoryService: CategoryService,
     private swalService: SwalService,
+    private router: Router,
     private spinner: NgxSpinnerService
   ) {}
 
@@ -95,10 +97,11 @@ export class ViewQuizzesComponent implements OnInit {
     this.quizzesService.addQuiz(this.addQuizForm).subscribe({
       next: (data: any) => {
         this.spinner.hide();
-        Swal.fire('Success', 'Quiz has been successfully added.', 'success');
-        setTimeout(() => {
-          location.reload();
-        }, 3000)
+        Swal.fire('Success', 'Quiz has been successfully added.', 'success').then(
+          (e) => {
+            location.reload();
+          }
+        )
       },
       error: (err) => {
         this.spinner.hide();
@@ -132,7 +135,6 @@ export class ViewQuizzesComponent implements OnInit {
                 this.spinner.hide();
                 Swal.fire('Error', 'Something went wrong, please try again.', 'error');
                 console.log(err);
-
               }
             })
           }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CategoryService } from 'src/app/services/category.service';
 import { SwalService } from 'src/app/services/swal-service/swal.service';
@@ -21,7 +22,8 @@ export class ViewCategoriesComponent implements OnInit {
 
   constructor(private categoryService: CategoryService,
     private swalService: SwalService,
-    private ngxSpinner: NgxSpinnerService
+    private ngxSpinner: NgxSpinnerService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -59,14 +61,15 @@ export class ViewCategoriesComponent implements OnInit {
     this.categoryService.addCategory(this.addCategoryForm).subscribe(
       {
         next: (data: any) => {
-          this.ngxSpinner.show();
-          Swal.fire('Success','The category has been successfully added.','success');
-          setTimeout(()=>{
-            window.location.reload();
-          }, 3000)
+          this.ngxSpinner.hide();
+          Swal.fire('Success','The category has been successfully added.','success').then(
+            (e) => {
+              location.reload();
+            }
+          )
         },
         error: (err) => {
-          this.ngxSpinner.show();
+          this.ngxSpinner.hide();
           console.log(err);
           Swal.fire('Error','Please try again.','error');
         }
@@ -88,11 +91,10 @@ export class ViewCategoriesComponent implements OnInit {
           this.categoryService.deleteCategory(categoryId).subscribe(
             {
               next: (data:any) => {
-                Swal.fire('Success','The category has been successfully deleted.','success');
-                setTimeout(
-                  () => {
+                Swal.fire('Success','The category has been successfully deleted.','success').then(
+                  (e) => {
                     location.reload();
-                  }, 3000
+                  }
                 )
               },
               error: (err) => {
