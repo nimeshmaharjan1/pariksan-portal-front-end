@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbButtonModule } from '@nebular/theme';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -12,9 +13,12 @@ import Swal from 'sweetalert2';
 export class SignUpComponent implements OnInit {
   
   showPassword = true;
+  isStudent: boolean = false;
 
   constructor(
-    private userService: UserService,) { }
+    private userService: UserService,
+    private spinner: NgxSpinnerService
+    ) { }
 
   public user = {
     username: '',
@@ -23,27 +27,33 @@ export class SignUpComponent implements OnInit {
     lastName: '',
     email: '',
     phone: '',
+    isStudent: true,
     occupation: ''
   }
 
   ngOnInit(): void {
   }
+
   formSubmit(){
-    if(this.user.username == null || this.user.username == ''){
+    this.spinner.show();
+    if(this.user.username.trim() == '' || this.user.password.trim() == '' || this.user.firstName.trim() == '' || this.user.lastName.trim() == '' || this.user.email.trim() == '' || this.user.phone.trim() == ''){
+      this.spinner.hide();
       Swal.fire({
         icon: 'info',
         title: 'Oops...',
-        text: 'Username is required!'});
+        text: 'Fields cannot be blank!'});
       return;
     }
     this.userService.addUser(this.user).subscribe(
       {
         next: (data:any) => {
+          this.spinner.hide();
           //Sucess
           console.log(data)
           Swal.fire('Success', 'User Successfully Registered.', 'success');
         },
         error: (error) => {
+          this.spinner.hide();
           //Error
           console.log(error)
           Swal.fire({
@@ -53,6 +63,19 @@ export class SignUpComponent implements OnInit {
         }
       }
     )
+  }
+
+  clear() {
+    this.user = {
+      username: '',
+      password: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      isStudent: false,
+      occupation: ''
+    }
   }
 
 }

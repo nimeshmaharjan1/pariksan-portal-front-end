@@ -3,8 +3,12 @@
   <nb-layout-header fixed>
     <div class="header-container hidden-print">
       <div class="logo-container">
-          <nb-icon class="toggle m-3" (click) = toggleCompact() *ngIf="isCompact" icon="menu-outline"></nb-icon>
-          <nb-icon class="toggle m-3" (click) = toggleCompact() *ngIf="!isCompact" icon="menu-arrow-outline"></nb-icon>
+        <button nbButton outline status="primary" class="m-1" *ngIf="isCompact" (click) = toggleCompact()  >
+          <nb-icon status="success" icon="menu-outline"></nb-icon>
+        </button>
+        <button nbButton outline status="primary" class="m-1" *ngIf="!isCompact" (click) = toggleCompact() >
+          <nb-icon status="success" icon="menu-arrow-outline"></nb-icon>
+        </button>
         <!-- <a class="logo" [routerLink]="['']">Pariksan Portal</a> -->
       </div>
     </div>
@@ -16,8 +20,6 @@
         <nb-action *ngIf="isLoggedIn && user" class="control-item" style="color: rgb(101, 223, 194);font-size: 1rem">
           <nb-icon icon="person-outline" style="font-size: 1.4rem;" class="m-1"></nb-icon>{{user.username}}</nb-action>
         <nb-action (click) = logout() *ngIf="isLoggedIn" class="control-item logout-item" [routerLink]="['/admin/users']">Logout</nb-action>
-        <!-- <nb-action   class="control-item"  [routerLink]="['/referral/personal']">Personal</nb-action> 
-        <nb-action   class="control-item"  [routerLink]="['/referral/agency']">Agency</nb-action>  -->
       </nb-actions>
     </div>
   </nb-layout-header>
@@ -31,6 +33,7 @@
     <app-spinner></app-spinner>
 
     <router-outlet></router-outlet>
+    <app-ngx-spinner></app-ngx-spinner>
 
   </nb-layout-column>
 <!-- 

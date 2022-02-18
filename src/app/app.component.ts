@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Component,
   OnInit
@@ -14,6 +15,13 @@ import {
 import {
   LoginService
 } from './services/login.service';
+=======
+import { Component, OnInit } from '@angular/core';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
+import { LoginService } from './services/login.service';
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
 
 @Component({
   selector: 'app-root',
@@ -26,6 +34,7 @@ export class AppComponent implements OnInit {
   user = null;
 
   constructor(private sidebarService: NbSidebarService,
+<<<<<<< HEAD
     public login: LoginService,
     private spinner: NgxSpinnerService
   ) {}
@@ -44,6 +53,28 @@ export class AppComponent implements OnInit {
       }
     )
   }
+=======
+              public login: LoginService,
+              private ngxSpinner: NgxSpinnerService
+     ) { }
+
+     ngOnInit(): void {
+       this.ngxSpinner.show();
+       setTimeout(
+         () => {
+           this.ngxSpinner.hide()
+         }, 5000
+       )
+         this.isLoggedIn = this.login.isLoggedIn();
+         this.user = this.login.getUser();
+         this.login.logInStatusSubject.asObservable().subscribe(
+           (data) => {
+            this.isLoggedIn = this.login.isLoggedIn();
+            this.user = this.login.getUser();
+           }
+         )
+     }
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
 
   layout: any = {};
   sidebar: any = {};
@@ -56,6 +87,7 @@ export class AppComponent implements OnInit {
   toggleCompact() {
     this.sidebarService.toggle(true);
     this.isCompact = !this.isCompact;
+<<<<<<< HEAD
   }
 
   public logout() {
@@ -64,3 +96,26 @@ export class AppComponent implements OnInit {
     // this.login.logInStatusSubject.next(false);
   }
 }
+=======
+}
+
+public logout(){
+  Swal.fire({
+      title: 'Are you sure you want to logout?',
+      icon: 'info',
+      confirmButtonText: 'Logout',
+      showCancelButton: true
+    })
+    .then(
+      (result) => {
+        if (result.isConfirmed) {
+          this.login.logout();
+          window.location.reload();
+        } else {
+          return;
+        }
+      }
+    )
+}
+}
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406

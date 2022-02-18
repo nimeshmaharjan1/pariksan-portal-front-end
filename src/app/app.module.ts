@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
@@ -28,9 +28,15 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { config } from 'rxjs';
+<<<<<<< HEAD
 import { UpdateQuizComponent } from './pages/admin/quiz/update-quiz/update-quiz.component';
 import { SpinnerComponent } from './static/spinner/spinner.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+=======
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinner.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
 
 @NgModule({
   declarations: [
@@ -51,8 +57,13 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AddCategoryComponent,
     UpdateCategoryComponent,
     ViewQuizzesComponent,
+<<<<<<< HEAD
     UpdateQuizComponent,
     SpinnerComponent
+=======
+    NgxSpinnerComponent,
+    UpdateQuizComponent
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
   ],
   imports: [
     BrowserModule,
@@ -81,7 +92,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NbToggleModule,
     NbSelectModule,
     NgxSpinnerModule,
+<<<<<<< HEAD
+=======
+    NbToastrModule.forRoot()
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

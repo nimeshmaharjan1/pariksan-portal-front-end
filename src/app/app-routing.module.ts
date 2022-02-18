@@ -15,7 +15,11 @@ import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.com
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+<<<<<<< HEAD
 import { UpdateQuizComponent } from './pages/admin/quiz/update-quiz/update-quiz.component';
+=======
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+>>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
 
 const routes: Routes = [
   {
