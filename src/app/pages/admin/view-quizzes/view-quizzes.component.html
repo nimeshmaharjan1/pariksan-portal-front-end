@@ -33,10 +33,10 @@
                           <button nbButton class="m-1" size="small" status="primary">
                               Questions
                           </button>
-                          <button nbButton class="m-3" size="small" status="primary">
+                          <button nbButton class="m-3" size="small" status="primary" [routerLink]="'/admin/update-quiz/' + quiz.quizId">
                               Update
                           </button>
-                          <button class="m-1" nbButton size="small" outline>
+                          <button class="m-1" nbButton size="small" outline (click)="deleteQuiz(quiz.quizId)">
                               <nb-icon icon="trash" status="danger"></nb-icon>
                           </button>
                         </div>
@@ -52,8 +52,10 @@
     </nb-card-front>
     <nb-card-back>
       <nb-card accent="danger" size="large">
-        <nb-card-header class="card-title">
-            Add Quizzes
+        <nb-card-header>
+          <h4 class="card-title">
+            Add Quiz
+          </h4>
         </nb-card-header>
           <nb-card-body>
                     <form (ngSubmit)="addQuiz()" style="margin-top: -1.5rem;">
@@ -78,7 +80,7 @@
                           <nb-select class="mt-3" placeholder="Select the category" [(ngModel)]="addQuizForm.category.categoryId" name="category">
                             <nb-option *ngFor="let category of categories" [value]="category.categoryId">{{category.title}}</nb-option>
                             </nb-select>
-                          <nb-toggle class="m-4" labelPosition="left" [(ngModel)]="addQuizForm.active" name="active" status="danger">Publish Status</nb-toggle>
+                          <nb-toggle class="m-4" labelPosition="left" [(ngModel)]="addQuizForm.active" name="active" status="danger"><label class="toggle-label">Are you working/employed?</label></nb-toggle>
                         </div>
                         <div class="col-md-6">
                           <label for="maximumMarks" class="addTitle">Maximum Marks</label>
