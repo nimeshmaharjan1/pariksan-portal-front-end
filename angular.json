@@ -36,14 +36,10 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css",
-<<<<<<< HEAD
-              "node_modules/ngx-spinner/animations/square-jelly-box.css"
-=======
               "node_modules/ngx-spinner/animations/square-jelly-box.css",
               "node_modules/ngx-spinner/animations/ball-newton-cradle.css",
               "node_modules/ngx-spinner/animations/line-scale.css",
               "node_modules/ngx-spinner/animations/ball-climbing-dot.css"
->>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
             ],
             "scripts": []
           },

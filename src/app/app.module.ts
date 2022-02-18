@@ -28,15 +28,9 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { config } from 'rxjs';
-<<<<<<< HEAD
-import { UpdateQuizComponent } from './pages/admin/quiz/update-quiz/update-quiz.component';
 import { SpinnerComponent } from './static/spinner/spinner.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-=======
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { NgxSpinnerComponent } from './static/ngx-spinner/ngx-spinner/ngx-spinner.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
->>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
 
 @NgModule({
   declarations: [
@@ -57,13 +51,8 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     AddCategoryComponent,
     UpdateCategoryComponent,
     ViewQuizzesComponent,
-<<<<<<< HEAD
-    UpdateQuizComponent,
-    SpinnerComponent
-=======
-    NgxSpinnerComponent,
+    SpinnerComponent,
     UpdateQuizComponent
->>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
   ],
   imports: [
     BrowserModule,
@@ -92,10 +81,6 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     NbToggleModule,
     NbSelectModule,
     NgxSpinnerModule,
-<<<<<<< HEAD
-=======
-    NbToastrModule.forRoot()
->>>>>>> 75d65e2c8bb729672b432acd3fd9965ebc256406
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
