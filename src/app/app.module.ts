@@ -28,6 +28,9 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { config } from 'rxjs';
+import { UpdateQuizComponent } from './pages/admin/quiz/update-quiz/update-quiz.component';
+import { SpinnerComponent } from './static/spinner/spinner.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { config } from 'rxjs';
     ViewCategoriesComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    ViewQuizzesComponent
+    ViewQuizzesComponent,
+    UpdateQuizComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ import { config } from 'rxjs';
     NbListModule,
     NbDialogModule.forRoot(),
     NbToggleModule,
-    NbSelectModule
+    NbSelectModule,
+    NgxSpinnerModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
