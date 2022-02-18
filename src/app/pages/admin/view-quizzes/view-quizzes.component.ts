@@ -10,6 +10,9 @@ import {
 import {
   QuizService
 } from 'src/app/services/quiz.service';
+import {
+  SwalService
+} from 'src/app/services/swal-service/swal.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -35,7 +38,8 @@ export class ViewQuizzesComponent implements OnInit {
   }
 
   constructor(private quizzesService: QuizService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private swalService: SwalService
   ) {}
 
   ngOnInit(): void {
@@ -66,32 +70,58 @@ export class ViewQuizzesComponent implements OnInit {
 
   addQuiz() {
     if (this.addQuizForm.title === '') {
-      Swal.fire('Error','Title cannot be blank.','error');
+      Swal.fire('Error', 'Title cannot be blank.', 'error');
       return;
     }
     if (this.addQuizForm.description === '' || this.addQuizForm.maxMarks === '') {
-      Swal.fire('Error','Fields cannot be blank.','error');
+      Swal.fire('Error', 'Fields cannot be blank.', 'error');
       return;
     }
     if (this.addQuizForm.category === null) {
-      Swal.fire('Error','Category cannot be empty.','error');
+      Swal.fire('Error', 'Category cannot be empty.', 'error');
       return;
     }
-    this.quizzesService.addQuiz(this.addQuizForm).subscribe(
-      {
-        next: (data:any) => {
-          Swal.fire('Success','Quiz has been successfully added.','success');
-          setTimeout(() => {
-            location.reload();
-          }, 3000)
-        },
-        error: (err) => {
-          Swal.fire('Error','Something went wrong, please try again.','error');
-        }
+    this.quizzesService.addQuiz(this.addQuizForm).subscribe({
+      next: (data: any) => {
+        Swal.fire('Success', 'Quiz has been successfully added.', 'success');
+        setTimeout(() => {
+          location.reload();
+        }, 3000)
+      },
+      error: (err) => {
+        Swal.fire('Error', 'Something went wrong, please try again.', 'error');
       }
-    )
-    
+    })
+
   }
 
+  deleteQuiz(quizId) {
+    Swal.fire({
+        title: 'Are you sure?',
+        icon: 'info',
+        confirmButtonText: 'Delete',
+        showCancelButton: true
+      })
+      .then(
+        (result) => {
+          if (result.isConfirmed) {
+            //if Deleted
+            this.quizzesService.deleteQuiz(quizId).subscribe({
+              next: (data: any) => {
+                this.quizzes = this.quizzes.filter(
+                  (quiz) => quiz.quizId !== quizId
+                );
+                // this.swalService.swalConfirmMethod('Are you sure?', 'info', 'Delete', true );
+              },
+              error: (err) => {
+                Swal.fire('Error', 'Something went wrong, please try again.', 'error');
+                console.log(err);
+
+              }
+            })
+          }
+        }
+      )
+  }
 
 }

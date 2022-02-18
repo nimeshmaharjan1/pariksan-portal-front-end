@@ -36,7 +36,7 @@
                           <button nbButton class="m-3" size="small" status="primary">
                               Update
                           </button>
-                          <button class="m-1" nbButton size="small" outline>
+                          <button class="m-1" nbButton size="small" outline (click)="deleteQuiz(quiz.quizId)">
                               <nb-icon icon="trash" status="danger"></nb-icon>
                           </button>
                         </div>

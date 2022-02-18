@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { SwalService } from 'src/app/services/swal-service/swal.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +18,9 @@ export class ViewCategoriesComponent implements OnInit {
 
   public flipped;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService,
+    private swalService: SwalService
+    ) { }
 
   ngOnInit(): void {
     this.categoryService.categories().subscribe({
@@ -66,18 +69,32 @@ export class ViewCategoriesComponent implements OnInit {
 
   deleteCategory(categoryId) {
     
-    this.categoryService.deleteCategory(categoryId).subscribe(
-      {
-        next: (data:any) => {
-          Swal.fire('Success','The category has been successfully deleted.','success');
-          setTimeout(()=>{
-            window.location.reload();
-          }, 3000)
-        },
-        error: (err) => {
-          console.log(err);
-          Swal.fire('Error','Please try again.','error');
-          
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'info',
+      confirmButtonText: 'Delete',
+      showCancelButton: true
+    })
+    .then(
+      (result) => {
+        if (result.isConfirmed) {
+          this.categoryService.deleteCategory(categoryId).subscribe(
+            {
+              next: (data:any) => {
+                Swal.fire('Success','The category has been successfully deleted.','success');
+                setTimeout(
+                  () => {
+                    location.reload();
+                  }, 3000
+                )
+              },
+              error: (err) => {
+                console.log(err);
+                Swal.fire('Error','Please try again.','error');
+                
+              }
+            }
+          )
         }
       }
     )

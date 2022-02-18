@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import Swal from 'sweetalert2';
 import { LoginService } from './services/login.service';
 
 @Component({
@@ -41,8 +42,21 @@ export class AppComponent implements OnInit {
 }
 
 public logout(){
-  this.login.logout();
-  window.location.reload();
-  // this.login.logInStatusSubject.next(false);
+  Swal.fire({
+      title: 'Are you sure you want to logout?',
+      icon: 'info',
+      confirmButtonText: 'Logout',
+      showCancelButton: true
+    })
+    .then(
+      (result) => {
+        if (result.isConfirmed) {
+          this.login.logout();
+          window.location.reload();
+        } else {
+          return;
+        }
+      }
+    )
 }
 }

@@ -16,8 +16,6 @@
         <nb-action *ngIf="isLoggedIn && user" class="control-item" style="color: rgb(101, 223, 194);font-size: 1rem">
           <nb-icon icon="person-outline" style="font-size: 1.4rem;" class="m-1"></nb-icon>{{user.username}}</nb-action>
         <nb-action (click) = logout() *ngIf="isLoggedIn" class="control-item logout-item" [routerLink]="['/admin/users']">Logout</nb-action>
-        <!-- <nb-action   class="control-item"  [routerLink]="['/referral/personal']">Personal</nb-action> 
-        <nb-action   class="control-item"  [routerLink]="['/referral/agency']">Agency</nb-action>  -->
       </nb-actions>
     </div>
   </nb-layout-header>
