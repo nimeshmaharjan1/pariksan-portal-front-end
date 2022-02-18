@@ -80,7 +80,7 @@
                           <nb-select class="mt-3" placeholder="Select the category" [(ngModel)]="addQuizForm.category.categoryId" name="category">
                             <nb-option *ngFor="let category of categories" [value]="category.categoryId">{{category.title}}</nb-option>
                             </nb-select>
-                          <nb-toggle class="m-4" labelPosition="left" [(ngModel)]="addQuizForm.active" name="active" status="danger"><label class="toggle-label">Are you working/employed?</label></nb-toggle>
+                          <nb-toggle class="m-4" labelPosition="left" [(ngModel)]="addQuizForm.active" name="active" status="danger"><label class="toggle-label">Publish Status?</label></nb-toggle>
                         </div>
                         <div class="col-md-6">
                           <label for="maximumMarks" class="addTitle">Maximum Marks</label>
