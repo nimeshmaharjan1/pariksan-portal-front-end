@@ -1,0 +1,29 @@
+.about {
+  text-align: justify;
+  font-family: var(--labelFont);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.logo img {
+    width: 40rem;
+    height: 35rem;
+}
+.card-title{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+nb-card-body{
+    text-align: center;
+}
+nb-icon{
+    font-size: 7rem;
+}
+.heading {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}

@@ -18,7 +18,7 @@
   --bodyFont: 'Roboto Mono', monospace;
 }
 *{
-  font-family: var(--labelFont);
+  font-family: var(--labelFont) !important;
 }
 .textCenter{
   text-align: center;
@@ -28,9 +28,10 @@ label{
     padding: 0.3rem;
 }
 .pageHeader{
-  font-family: var(--mainFont);
-  margin: -2.5rem auto -7rem auto;
-  font-size: 11rem;
+  letter-spacing: -1px;
+  margin: -2.5rem auto -6rem auto;
+  font-size: 10rem;
+  font-weight: bold;
   z-index: 0; /*The z-index property specifies the stack order of an element.*/
   opacity: .1;
 }
@@ -108,4 +109,4 @@ input, textarea, nb-toggle {
   letter-spacing: 1px;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; }
