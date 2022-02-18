@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NbButtonModule } from '@nebular/theme';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
     ) { }
 
   public user = {
@@ -50,7 +52,15 @@ export class SignUpComponent implements OnInit {
           this.spinner.hide();
           //Sucess
           console.log(data)
-          Swal.fire('Success', 'User Successfully Registered.', 'success');
+          Swal.fire('Success', 'User Successfully Registered.', 'success').then(
+            (e) => {
+              this.spinner.show();
+              setTimeout(() => {
+              this.spinner.hide();
+              this.router.navigate(['login'])
+              }, 3000)
+            }
+          );
         },
         error: (error) => {
           this.spinner.hide();

@@ -81,9 +81,11 @@ nb-tab p {
 .list-title {
     font-family: var(--bodyFont);
     font-size: 1.2rem;
+    font-weight: bold;
 }
 .subheader {
   font-family: var(--bodyFont);
+  margin-left: 0.1rem;
   font-size: 0.9rem;
 }
 .addTitle {

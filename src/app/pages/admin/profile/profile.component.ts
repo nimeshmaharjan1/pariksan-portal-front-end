@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   getUser() {
     setTimeout(() => {
       this.spinner.hide();
-    }, 4000)
+    }, 3000)
     this.user = this.login.getUser();
   }
   

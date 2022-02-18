@@ -1,1 +1,29 @@
-<p>update-category works!</p>
+<nb-card accent="danger">
+    <nb-card-header>
+      <h4 class="card-title">
+        Update Category
+      </h4>
+    </nb-card-header>
+    <nb-card-body>
+            <div class="row password">
+              <form (ngSubmit)="formSubmit()">
+                <label for="title" class="addTitle">Title</label>
+                <nb-form-field>
+                  <input placeholder="Enter the category's title" required nbInput shape="semi-round" class="mb-1" fullWidth type="text" name="title"
+                    [(ngModel)]="categoryFromApi.title">
+                </nb-form-field>
+                <label class="addTitle" for="Description" style="margin-top: 0.5rem;">Description</label>
+                <nb-form-field>
+                  <!-- <nb-icon nbPrefix icon="message-square-outline" pack="eva"></nb-icon> -->
+                  <textarea nbInput rows="7" class="mt-1" shape="semi-round" fullWidth
+                    placeholder="Enter the category's description" name="description"
+                    [(ngModel)]="categoryFromApi.description"></textarea>
+                </nb-form-field>
+                <button type="submit" class="m-2 mt-3" nbButton outline size="small" status="success"> Update
+                </button>
+              </form>
+            </div>
+    </nb-card-body>
+    <nb-card-footer>
+    </nb-card-footer>
+  </nb-card>

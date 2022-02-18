@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
        setTimeout(
          () => {
            this.ngxSpinner.hide()
-         }, 5000
+         }, 4000
        )
          this.isLoggedIn = this.login.isLoggedIn();
          this.user = this.login.getUser();
