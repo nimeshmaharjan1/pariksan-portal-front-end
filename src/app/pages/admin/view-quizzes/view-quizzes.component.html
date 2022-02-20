@@ -18,7 +18,7 @@
                           </h4>
                         </div>
                       </div>
-                      <div class="container m-2">
+                      <div class="container m-2" style="margin-top: -1rem;">
                           <button nbButton ghost size="small" status="danger">
                             Maxium Marks: {{quiz.maxMarks}}
                           </button>
@@ -29,8 +29,8 @@
                             Attemps: {{quiz.numberOfQuestions}}
                           </button>
                       </div>
-                        <div class="container">
-                          <button nbButton class="m-1" size="small" status="primary">
+                        <div class="container" class="margin-top: -2rem">
+                          <button [routerLink]="'/admin/view-question/' + quiz.quizId + '/' + quiz.title"nbButton class="m-1" size="small" status="primary">
                               Questions
                           </button>
                           <button nbButton class="m-3" size="small" status="primary" [routerLink]="'/admin/update-quiz/' + quiz.quizId">

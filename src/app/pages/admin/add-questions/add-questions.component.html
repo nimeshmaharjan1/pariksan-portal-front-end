@@ -1,0 +1,49 @@
+<nb-card>
+    <nb-card-header>
+        <h1>Add Questions to <span style="color:#ff3d71">{{quizTitle}}</span> Quiz
+        </h1>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container-fluid">
+        <form>
+          <div class="row align-items-center">
+            <nb-form-field class="col-md-12">
+              <label for="question">Question:</label>
+              <textarea nbInput fullWidth name="question" rows="5"></textarea>
+            </nb-form-field>
+            <div class="col-md-6">
+              <nb-form-field>
+                <label for="option1">Option A:</label>
+                <input nbInput fullWidth name="option1">
+              </nb-form-field>
+            </div>
+            <div class="col-md-6">
+              <nb-form-field>
+                <label for="option2">Option B:</label>
+                <input nbInput fullWidth name="option2">
+              </nb-form-field>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <nb-form-field>
+                <label for="option3">Option C:</label>
+                <input nbInput fullWidth name="option3">
+              </nb-form-field>
+            </div>
+            <div class="col-md-6">
+              <nb-form-field>
+                <label for="option4">Option D:</label>
+                <input nbInput fullWidth name="option4">
+              </nb-form-field>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-4 mb-2">
+            <button nbButton outline status="success">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </nb-card-body>
+</nb-card>

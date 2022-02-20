@@ -31,6 +31,8 @@ import { config } from 'rxjs';
 import { SpinnerComponent } from './static/spinner/spinner.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
     UpdateCategoryComponent,
     ViewQuizzesComponent,
     SpinnerComponent,
-    UpdateQuizComponent
+    UpdateQuizComponent,
+    ViewQuizQuestionsComponent,
+    AddQuestionsComponent
   ],
   imports: [
     BrowserModule,

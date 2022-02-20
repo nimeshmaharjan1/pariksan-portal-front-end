@@ -1,0 +1,59 @@
+<nb-card>
+  <nb-card-header>
+    <h1>
+      <strong>Questions for </strong> <span style="color: #ff3d71">{{quizTitle}}</span>
+      <button [routerLink]="'/admin/add-question/' + quizId + '/' + quizTitle" nbButton outline status="success"
+        class="m-4 mt-3">
+        <nb-icon icon="plus-outline"></nb-icon>
+      </button>
+    </h1>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="container-fluid">
+      <div *ngFor="let question of questions; let i = index ">
+        <div>
+          <h4>
+            <strong>Question. {{i + 1}} </strong>{{question.content}}
+          </h4>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              <strong>A) </strong>
+              {{question.option1}}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p>
+              <strong>
+                B)
+              </strong>
+              {{question.option2}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              <strong>C) </strong>
+              {{question.option3}}
+            </p>
+          </div>
+          <div class="col-md-6 option align-content-center">
+            <p>
+              <strong>
+                D)
+              </strong>
+              {{question.option4}}
+            </p>
+          </div>
+        </div>
+        <button nbButton ghost size="small" status="primary" (click)="showAns()">show answer</button>
+        <ng-container *ngIf="showAnswer">
+          <hr>
+          <span style="color:#478e8a;"><strong>Answer:</strong></span> {{question.answer}}
+        </ng-container>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
