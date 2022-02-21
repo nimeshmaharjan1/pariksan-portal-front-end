@@ -15,4 +15,8 @@ export class QuestionService {
   public addQuestion(question) {
     return this.http.post(`${baseUrl}/question/`, question);
   }
+  
+  public deleteQuestion(questionId) {
+    return this.http.delete(`${baseUrl}/question/${questionId}`);
+  }
 }

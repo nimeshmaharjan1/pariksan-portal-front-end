@@ -28,7 +28,7 @@
           <nb-card size="small">
             <nb-card-body>
               <nb-tabset>
-                <nb-tab tabTitle="ABOUT" class="mt-2 mb-2">
+                <nb-tab tabTitle="ABOUT">
                   <ul>
                     <li>
                       <p>ID - <span>{{user.id}}</span></p>
@@ -46,16 +46,12 @@
                       <p>Status - {{user.userEnabled === true ? 'Active' : 'In-active'}}</p>
                     </li>
                   </ul>
+                  <button nbButton size="small" status="primary">
+                    Update
+                  </button>
                 </nb-tab>
               </nb-tabset>
             </nb-card-body>
-            <nb-card-footer style="margin-top: -1.8rem;">
-              <div class="container">
-                <button nbButton size="small" status="primary">
-                  Update
-                </button>
-              </div>
-            </nb-card-footer>
           </nb-card>
         </div>
       </div>

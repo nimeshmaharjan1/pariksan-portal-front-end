@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
 import Swal from 'sweetalert2';
-
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 @Component({
   selector: 'app-add-questions',
   templateUrl: './add-questions.component.html',
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AddQuestionsComponent implements OnInit {
 
+  public editor = ClassicEditor;
   quizIdFromUrl;
   quizTitle;
   question = {  
