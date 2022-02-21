@@ -1,7 +1,7 @@
 <nb-card>
-  <nb-card-header>
+  <nb-card-header class="container">
     <h1>
-      <strong>Questions for </strong> <span style="color: #ff3d71">{{quizTitle}}</span>
+      <strong><span style="color: #ff3d71">{{quizTitle}}</span></strong>
       <button [routerLink]="'/admin/add-question/' + quizId + '/' + quizTitle" nbButton outline status="success"
         class="m-4 mt-3">
         <nb-icon icon="plus-outline"></nb-icon>
@@ -18,41 +18,83 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <p>
-              <strong>A) </strong>
-              {{question.option1}}
-            </p>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>A) </strong>
+                  </td>
+                  <td class="p-2">
+                    {{question.option1}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="col-md-6">
-            <p>
-              <strong>
-                B)
-              </strong>
-              {{question.option2}}
-            </p>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>
+                      B)
+                    </strong>
+                  </td>
+                  <td class="p-2">
+                    {{question.option2}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <p>
-              <strong>C) </strong>
-              {{question.option3}}
-            </p>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>C) </strong>
+                  </td>
+                  <td class="p-2">
+                    {{question.option3}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-md-6 option align-content-center">
-            <p>
+          <div class="col-md-6 option">
+            <!-- <p>
               <strong>
                 D)
               </strong>
               {{question.option4}}
-            </p>
+            </p> -->
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>
+                      D)
+                    </strong>
+                  </td>
+                  <td class="p-2">
+                    {{question.option4}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <button nbButton ghost size="small" status="primary" (click)="showAns()">show answer</button>
-        <ng-container *ngIf="showAnswer">
+        <div class="mb-3">
+          <p><span style="color:#478e8a;"><strong>Answer:</strong></span> {{question.answer}}</p>
           <hr>
-          <span style="color:#478e8a;"><strong>Answer:</strong></span> {{question.answer}}
-        </ng-container>
+        </div>
+        <!-- <div class="mb-3">
+          <button nbButton ghost size="small" status="primary" (click)="showAns()">show answer</button>
+          <ng-container *ngIf="showAnswer">
+          </ng-container>
+        </div> -->
       </div>
     </div>
   </nb-card-body>
