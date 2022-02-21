@@ -1,1 +1,60 @@
-<p>update-question works!</p>
+<nb-card>
+  <nb-card-header>
+    <h1 style="font-weight: bold;font-size: 2em;">
+      Update Question
+    </h1>
+  </nb-card-header>
+  <nb-card-body>
+    <form (ngSubmit)="submit()">
+      <div class="row">
+        <nb-form-field>
+        <label for="question">Question:</label>
+        <textarea required [(ngModel)]="question.content" nbInput fullWidth name="question" rows="5"></textarea>
+      </nb-form-field>
+      <div class="col-md-6">
+        <nb-form-field>
+          <label for="option1">Option A:</label>
+          <input required [(ngModel)]="question.option1" nbInput fullWidth name="option1">
+        </nb-form-field>
+      </div>
+      <div class="col-md-6">
+        <nb-form-field>
+          <label for="option2">Option B:</label>
+          <input required [(ngModel)]="question.option2" nbInput fullWidth name="option2">
+        </nb-form-field>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <nb-form-field>
+          <label for="option3">Option C:</label>
+          <input [(ngModel)]="question.option3" nbInput fullWidth name="option3">
+        </nb-form-field>
+      </div>
+      <div class="col-md-6">
+        <nb-form-field>
+          <label for="option4">Option D:</label>
+          <input [(ngModel)]="question.option4" nbInput fullWidth name="option4">
+        </nb-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-1">
+        <label for="select">Answer</label>
+        <nb-select fullWidth name="select" [(ngModel)]="question.answer" placeholder="Select the answer">
+          <nb-option [value]="question.option1" *ngIf="question.option1">{{question.option1}}</nb-option>
+          <nb-option [value]="question.option2" *ngIf="question.option2">{{question.option2}}</nb-option>
+          <nb-option [value]="question.option3" *ngIf="question.option3">{{question.option3}}</nb-option>
+          <nb-option [value]="question.option4" *ngIf="question.option4">{{question.option4}}</nb-option>
+        </nb-select>
+      </div>
+    </div>
+    <div class="container" class="mt-4">
+      <div class="d-flex justify-content-center align-items-center">
+        <button nbButton (click)="back()" outline status="danger" class="m-2" type="button">Back</button>
+        <button nbButton status="primary" class="m-2" type="submit">Update</button>
+      </div>
+    </div>
+  </form>
+  </nb-card-body>
+</nb-card>

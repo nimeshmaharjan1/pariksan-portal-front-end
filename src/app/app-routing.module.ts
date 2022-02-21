@@ -18,6 +18,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
+import {UpdateQuestionComponent} from "./pages/admin/question/update-question/update-question.component";
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
       {
         path: 'add-question/:quizId/:title',
         component: AddQuestionsComponent
+      },
+      {
+        path: 'update-question/:quizId/:title/:questionId',
+        component: UpdateQuestionComponent
       }
     ]
   },

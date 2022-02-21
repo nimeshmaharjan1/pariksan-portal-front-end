@@ -15,9 +15,6 @@
           <h4>
             <strong>Question. {{i + 1}} </strong>{{question.content}}
           </h4>
-          <button (click)="deleteQuestion(question.questionId)" style="margin-top: -0.3rem;margin-left: 0.5rem" nbButton ghost status="danger">
-            <nb-icon icon="trash-outline"></nb-icon>
-          </button>
         </div>
         <div class="row">
           <div class="col-md-6">
@@ -91,13 +88,14 @@
         </div>
         <div class="mb-3">
           <p><span style="color:#478e8a;"><strong>Answer:</strong></span> {{question.answer}}</p>
+          <button nbButton status="primary" size="small" [routerLink]="'/admin/update-question/' + quizId + '/' + quizTitle + '/' + question.questionId">
+            Update
+          </button>
+          <button size="medium" (click)="deleteQuestion(question.questionId)" style="margin-left: 1rem" nbButton ghost status="danger">
+            <nb-icon icon="trash-outline"></nb-icon>
+          </button>
           <hr>
         </div>
-        <!-- <div class="mb-3">
-          <button nbButton ghost size="small" status="primary" (click)="showAns()">show answer</button>
-          <ng-container *ngIf="showAnswer">
-          </ng-container>
-        </div> -->
       </div>
     </div>
   </nb-card-body>

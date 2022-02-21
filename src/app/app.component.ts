@@ -20,12 +20,12 @@ export class AppComponent implements OnInit {
      ) { }
 
      ngOnInit(): void {
-       this.ngxSpinner.show();
-       setTimeout(
-         () => {
-           this.ngxSpinner.hide()
-         }, 4000
-       )
+       // this.ngxSpinner.show();
+       // setTimeout(
+       //   () => {
+       //     this.ngxSpinner.hide()
+       //   }, 4000
+       // )
          this.isLoggedIn = this.login.isLoggedIn();
          this.user = this.login.getUser();
          this.login.logInStatusSubject.asObservable().subscribe(

@@ -37,10 +37,10 @@ export class ViewQuizQuestionsComponent implements OnInit {
     this.spinner.show();
     this.getQuestion();
     console.log(this.questions);
-    
+
   }
   getQuestion() {
-    this.questionService.getQuestionsofQuiz(this.quizId).subscribe({
+    this.questionService.getQuestionsOfQuiz(this.quizId).subscribe({
       next: (data: any) => {
         this.spinner.hide();
         this.questions = data;
