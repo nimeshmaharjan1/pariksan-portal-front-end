@@ -90,14 +90,9 @@ export class SidebarComponent implements OnInit {
     //   icon: {icon:'unlock-outline',options: {animation:{ type: 'zoom' }}},
     // },
   ];
-  
-  isLoggedIn: boolean = false;
-  isStudent: boolean = false;
-  isAdmin: boolean = false;
 
   constructor(public login: LoginService) { }
 
   ngOnInit(): void {
-    console.log('login: ', this.login.isLoggedIn());
   }
 }

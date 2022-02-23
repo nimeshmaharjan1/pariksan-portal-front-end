@@ -23,7 +23,8 @@
       </nb-actions>
     </div>
   </nb-layout-header>
-  <nb-sidebar state="compacted">
+
+  <nb-sidebar state="expanded">
     <div class="main-container">
       <app-sidebar></app-sidebar>
     </div>
@@ -35,9 +36,14 @@
     <router-outlet></router-outlet>
 
   </nb-layout-column>
-<!-- 
+
   <nb-layout-footer>
-    <app-footer></app-footer>
-  </nb-layout-footer> -->
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <app-footer></app-footer>
+        <nb-toggle labelPosition="left" (checkedChange)="changeMode()">{{isDarkMode ? 'Go Light' : 'Go Dark'}}</nb-toggle>
+      </div>
+    </div>
+  </nb-layout-footer>
 
 </nb-layout>

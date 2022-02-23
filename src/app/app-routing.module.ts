@@ -89,7 +89,7 @@ const routes: Routes = [
         component: UserProfileComponent,
       },
       {
-        path: '',
+        path: ':categoryId',
         component: WelcomeUserComponent,
       },
     ]

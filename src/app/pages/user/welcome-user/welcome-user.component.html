@@ -1,3 +1,69 @@
-<h1>
-    Welcome to the Student Dashboard
-</h1>
+<section class="container">
+  <h1 class="pageHeader">
+    Dashboard
+  </h1>
+  <div class="row">
+    <div class="col-md-3">
+      <nb-card size="tiny">
+        <nb-card-body>
+            <h4>
+                Attempts
+            </h4>
+            <p>
+                Attempts
+            </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-3">
+      <nb-card size="tiny">
+        <nb-card-body>
+            <h4>
+                Quiz
+            </h4>
+            <p>
+                Best Score
+            </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <nb-card size="tiny">
+        <nb-card-body>
+            <h4>
+                Thought of the day
+            </h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, debitis ducimus voluptatum quibusdam cum, esse earum culpa labore, deleniti quas rem? Corrupti minus exercitationem eaque aperiam tenetur qui numquam expedita.
+                </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <nb-card>
+        <nb-card-body>
+            <h4>
+                Categories
+            </h4>
+            <nb-list>
+                <nb-list-item *ngFor="let category of categories">
+                    {{category.title}}
+                </nb-list-item>
+            </nb-list>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <nb-card>
+          <nb-card-body>
+            <h4>
+                Available Quizzes
+            </h4>
+            <app-display-quiz></app-display-quiz>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</section>

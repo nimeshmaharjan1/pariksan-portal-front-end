@@ -16,8 +16,16 @@ export class AppComponent implements OnInit {
 
   constructor(private sidebarService: NbSidebarService,
               public login: LoginService,
-              private ngxSpinner: NgxSpinnerService
+              private ngxSpinner: NgxSpinnerService,
+              private themeService: NbThemeService
      ) { }
+
+     layout: any = {};
+     sidebar: any = {};
+     isCompact = true;
+     isDarkMode = true;
+   
+     private alive = true;
 
      ngOnInit(): void {
        // this.ngxSpinner.show();
@@ -35,12 +43,6 @@ export class AppComponent implements OnInit {
            }
          )
      }
-
-  layout: any = {};
-  sidebar: any = {};
-  isCompact = true;
-
-  private alive = true;
 
   title = 'pariksan_portal-frontend';
 
@@ -66,5 +68,13 @@ public logout(){
         }
       }
     )
+}
+changeMode() {
+  this.isDarkMode = !this.isDarkMode;
+  if(this.isDarkMode) {
+    this.themeService.changeTheme('dark');
+  } else {
+    this.themeService.changeTheme('default');
+  }
 }
 }
