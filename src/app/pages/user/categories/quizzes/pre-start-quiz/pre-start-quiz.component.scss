@@ -1,0 +1,30 @@
+* {
+    line-height: 1.2em;
+}
+h5, h6, li {
+    font-family: 'Roboto' !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+h6 {
+    opacity: 0.5;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+li::marker {
+    color: red;
+}
+
+li {
+    list-style-type:disc;
+    line-height: 1.9em;
+}
+
+strong {
+    font-family: 'Roboto' !important;
+}

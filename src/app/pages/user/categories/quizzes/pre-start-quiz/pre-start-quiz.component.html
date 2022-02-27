@@ -1,0 +1,38 @@
+<nb-card accent="danger">
+    <nb-card-header class="card-title">
+        Instructions
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container">
+            <h5>
+                Read the instructions of this page carefully.
+            </h5>
+            <h6>
+                One more step to go.
+            </h6>
+            <hr>
+            <h3 class="card-title">
+                {{quiz?.title}}
+            </h3>
+            <h6>
+                {{quiz?.description}}
+            </h6>
+            <hr>
+            <h5>
+                Important Instructions
+            </h5>
+            <ul>
+                <li>This quiz is specifically for practice purposes.</li>
+                <li>There are <strong>{{quiz?.numberOfQuestions}} questions</strong> in this quiz.</li>
+                <li>You will have to submit the quiz in <strong>{{quiz?.numberOfQuestions * 2}} minutes</strong> .</li>
+                <li>Each question carries <strong>{{quiz?.maxMarks / quiz?.numberOfQuestions}} marks</strong>. No negative markings for the wrong ones.</li>
+                <li>All the questions are of Multiple Choice Questions type.</li>
+            </ul>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button [routerLink]="'/user-dashboard/start-quiz/' + quizId" nbButton status="success" outline size="small">
+            start
+        </button>
+    </nb-card-footer>
+</nb-card>

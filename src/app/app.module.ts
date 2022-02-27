@@ -37,6 +37,8 @@ import { UpdateQuestionComponent } from './pages/admin/question/update-question/
 import { DisplayQuizComponent } from './pages/user/welcome-user/display-quiz/display-quiz.component';
 import { CategoriesComponent } from './pages/user/categories/categories.component';
 import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.component';
+import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/pre-start-quiz.component';
+import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.compon
     UpdateQuestionComponent,
     DisplayQuizComponent,
     CategoriesComponent,
-    QuizzesComponent
+    QuizzesComponent,
+    PreStartQuizComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,8 @@ import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions
 import {UpdateQuestionComponent} from "./pages/admin/question/update-question/update-question.component";
 import { CategoriesComponent } from './pages/user/categories/categories.component';
 import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.component';
+import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/pre-start-quiz.component';
+import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
 
 const routes: Routes = [
   {
@@ -101,6 +103,14 @@ const routes: Routes = [
       {
         path: 'categories/quizzes/:categoryId/:categoryTitle',
         component: QuizzesComponent
+      },
+      {
+        path: 'pre-start/:quizId',
+        component: PreStartQuizComponent
+      },
+      {
+        path: 'start-quiz/:quizId',
+        component: StartQuizComponent
       }
     ]
   },
