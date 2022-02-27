@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Dashboard',
       icon: {icon:'layout-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/user-dashboard'
+      link: '/user-dashboard/0'
     },
     {
       title: 'Profile',
@@ -53,6 +53,7 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Categories',
       icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
+      link: 'user-dashboard/category/:categoryId'
     },
     {
       title: 'Logout',

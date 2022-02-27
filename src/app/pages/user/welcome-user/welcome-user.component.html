@@ -8,6 +8,7 @@
         <nb-card-body>
             <h4>
                 Attempts
+                <hr>
             </h4>
             <p>
                 Attempts
@@ -20,6 +21,7 @@
         <nb-card-body>
             <h4>
                 Quiz
+                <hr>
             </h4>
             <p>
                 Best Score
@@ -32,6 +34,7 @@
         <nb-card-body>
             <h4>
                 Thought of the day
+                <hr>
             </h4>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, debitis ducimus voluptatum quibusdam cum, esse earum culpa labore, deleniti quas rem? Corrupti minus exercitationem eaque aperiam tenetur qui numquam expedita.
@@ -49,7 +52,9 @@
             </h4>
             <nb-list>
                 <nb-list-item *ngFor="let category of categories">
+                  <button [routerLink]="'/user-dashboard/' + category.categoryId" style="color: white;" nbButton ghost status="basic">
                     {{category.title}}
+                  </button>
                 </nb-list-item>
             </nb-list>
         </nb-card-body>
@@ -59,6 +64,7 @@
       <nb-card>
           <nb-card-body>
             <h4>
+                <!-- {{url == 0 ? 'Available Quizzes' : 'Available Quizzes for the Category'}} -->
                 Available Quizzes
             </h4>
             <app-display-quiz></app-display-quiz>

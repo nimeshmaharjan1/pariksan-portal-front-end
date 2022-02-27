@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule, NbToastrModule, NbSpinnerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
@@ -35,6 +35,8 @@ import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/vi
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 import { UpdateQuestionComponent } from './pages/admin/question/update-question/update-question.component';
 import { DisplayQuizComponent } from './pages/user/welcome-user/display-quiz/display-quiz.component';
+import { CategoriesComponent } from './pages/user/categories/categories.component';
+import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { DisplayQuizComponent } from './pages/user/welcome-user/display-quiz/dis
     ViewQuizQuestionsComponent,
     AddQuestionsComponent,
     UpdateQuestionComponent,
-    DisplayQuizComponent
+    DisplayQuizComponent,
+    CategoriesComponent,
+    QuizzesComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +93,7 @@ import { DisplayQuizComponent } from './pages/user/welcome-user/display-quiz/dis
     NbToggleModule,
     NbSelectModule,
     NgxSpinnerModule,
+    NbSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],

@@ -21,11 +21,24 @@ export class QuizService {
     return this.http.delete(`${baseUrl}/quiz/${quizId}`)
   }
 
-  public getQuiz(quizId) {
-    return this.http.get(`${baseUrl}/quiz/${quizId}`)
+  public getQuiz(categoryId) {
+    return this.http.get(`${baseUrl}/quiz/${categoryId}`)
   }
 
   public updateQuiz(quiz) {
     return this.http.put(`${baseUrl}/quiz/`, quiz);
+  }
+
+  public getQuizzesOfCategory(categoryId) {
+    return this.http.get(`${baseUrl}/quiz/category/${categoryId}`);
+  }
+
+  //GET ALL THE ACTIVE QUIZZES
+  public getActiveQuizzes() {
+    return this.http.get(`${baseUrl}/quiz/active-quizzes`);
+  }
+
+  public getActiveQuizzesOfCategory(categoryId) {
+    return this.http.get(`${baseUrl}/quiz/category/active/${categoryId}`);
   }
 }

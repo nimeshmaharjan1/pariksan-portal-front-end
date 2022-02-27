@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-body>
+        <h1>
+            Categories
+        </h1>
+        <nb-list>
+            <nb-list-item *ngFor="let category of categories">
+                <button [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title" nbButton ghost status="basic">
+                    {{category.title}}
+                </button>
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+</nb-card>

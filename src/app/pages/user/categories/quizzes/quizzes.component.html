@@ -1,0 +1,42 @@
+<nb-card>
+  <nb-card-body>
+    <h1 class="card-title">
+      {{categoryTitle}}
+    </h1>
+    <nb-list>
+      <nb-list-item *ngFor="let quiz of quizzes; let i = index">
+        <div class="container-fluid">
+          <div class="col">
+            <div class="col-md-8">
+              <div class="title">
+                {{quiz.title}}
+              </div>
+              <div class="sub-title mx-1 truncate">
+                {{quiz.description}}
+              </div>
+            </div>
+            <div class="col-md-6 mt-2 buttons mx-1">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button nbButton status="primary">
+                            Attempt
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button nbButton status="basic" ghost>
+                            Questions : {{quiz.numberOfQuestions}}
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button nbButton status="basic" ghost>
+                            Marks: {{quiz.maxMarks}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
