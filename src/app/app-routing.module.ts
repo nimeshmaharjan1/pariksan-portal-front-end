@@ -108,12 +108,13 @@ const routes: Routes = [
         path: 'pre-start/:quizId',
         component: PreStartQuizComponent
       },
-      {
-        path: 'start-quiz/:quizId',
-        component: StartQuizComponent
-      }
     ]
   },
+  {
+    path: 'start-quiz/:quizId',
+    component: StartQuizComponent,
+    canActivate: [StudentGuard],
+  }
 ];
 
 @NgModule({

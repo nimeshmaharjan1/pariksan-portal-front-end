@@ -1,12 +1,16 @@
 <div>
   <nb-list *ngIf="isCategoryIdZero">
     <nb-list-item *ngFor="let item of quizzes">
-      {{item.title}}
+      <div class="container">
+        {{item.title}}
+      </div>
     </nb-list-item>
   </nb-list>
   <nb-list *ngIf="!isCategoryIdZero">
     <nb-list-item *ngFor="let item of quizOfCategory">
-      {{item.title}}
+      <div class="container">
+        {{item.title}}
+      </div>
     </nb-list-item>
   </nb-list>
 </div>
@@ -16,8 +20,8 @@
         No quizzes are available for the selected category at the moment.
     </h6>
 </div>
-<div class="m-3">
+<div class="container m-3">
   <button [routerLink]="'/user-dashboard/0'" nbButton status="danger" outline size="small">
-    <nb-icon icon="arrow-back"></nb-icon>
+    <nb-icon icon="arrow-back" nbPrefix></nb-icon>Back
   </button>
 </div>

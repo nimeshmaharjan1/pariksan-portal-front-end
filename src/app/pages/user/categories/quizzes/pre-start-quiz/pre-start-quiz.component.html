@@ -31,7 +31,7 @@
         </div>
     </nb-card-body>
     <nb-card-footer>
-        <button [routerLink]="'/user-dashboard/start-quiz/' + quizId" nbButton status="success" outline size="small">
+        <button (click)="startQuiz()" nbButton status="success" outline size="small">
             start
         </button>
     </nb-card-footer>

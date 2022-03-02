@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4" *ngFor="let category of categories">
-                    <nb-card status="danger" class="categories" size="tiny" [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title">
+                    <nb-card status="primary" class="categories" size="tiny" [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title">
                         <nb-card-header>
                             {{category.title}}
                         </nb-card-header>

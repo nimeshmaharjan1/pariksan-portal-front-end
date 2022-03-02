@@ -46,10 +46,10 @@
   <div class="row">
     <div class="col-md-6">
       <nb-card>
-        <nb-card-body>
-            <h4>
-                Categories
-            </h4>
+        <nb-card-header>
+          <h4>
+            Categories</h4>
+        </nb-card-header>
             <nb-list>
                 <nb-list-item *ngFor="let category of categories">
                   <button [routerLink]="'/user-dashboard/' + category.categoryId" style="color: white;" nbButton ghost status="basic">
@@ -57,18 +57,16 @@
                   </button>
                 </nb-list-item>
             </nb-list>
-        </nb-card-body>
       </nb-card>
     </div>
     <div class="col-md-6">
       <nb-card>
-          <nb-card-body>
-            <h4>
-                <!-- {{url == 0 ? 'Available Quizzes' : 'Available Quizzes for the Category'}} -->
-                Available Quizzes
-            </h4>
+        <nb-card-header>
+          <h4>
+            Available Quizzes
+          </h4>
+        </nb-card-header>
             <app-display-quiz></app-display-quiz>
-        </nb-card-body>
       </nb-card>
     </div>
   </div>

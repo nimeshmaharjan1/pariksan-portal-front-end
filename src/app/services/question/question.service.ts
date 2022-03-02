@@ -26,4 +26,8 @@ export class QuestionService {
   public updateQuestion(question) {
     return this.http.put(`${baseUrl}/question/`, question);
   }
+
+  public getShuffledQuestions(quizId) {
+    return this.http.get(`${baseUrl}/question/quiz/${quizId}`)
+  }
 }

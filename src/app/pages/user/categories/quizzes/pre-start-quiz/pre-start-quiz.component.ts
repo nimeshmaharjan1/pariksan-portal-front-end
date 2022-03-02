@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pre-start-quiz',
@@ -10,14 +11,14 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class PreStartQuizComponent implements OnInit {
 
   constructor(private quizService: QuizService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
     quiz: any;
     quizId: any;
 
   ngOnInit(): void {
     this.quizId = this.route.snapshot.params['quizId'];
-    console.log(this.quizId);
     this.getQuiz();
   }
   getQuiz() {
@@ -32,5 +33,23 @@ export class PreStartQuizComponent implements OnInit {
       }
     })
   }
+
+  startQuiz() {
+    Swal.fire({
+        title: 'Do you want to start the quiz?',
+        icon: 'info',
+        confirmButtonText: 'Start',
+        showCancelButton: true
+      })
+      .then(
+        (result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/start-quiz/' + this.quizId]);
+          } else {
+            return;
+          }
+        }
+      )
+    }
 
 }

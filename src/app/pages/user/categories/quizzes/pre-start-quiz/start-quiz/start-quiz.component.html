@@ -1,3 +1,64 @@
-<nb-card>
-    Hello
-</nb-card>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      Instructions
+    </div>
+    <div class="col-md-8">
+      <ng-container *ngIf="!isSubmitted;">
+      <div *ngFor="let item of questions;let i = index">
+        <nb-card accent="success">
+            {{item.selectedOption}}
+          <nb-card-header>
+            Q.{{i + 1}} {{item.content}}
+          </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+                <nb-radio-group status="success" [(ngModel)]="item.selectedOption">
+                      <nb-radio [value]="item.option1">{{item.option1}}</nb-radio>
+                      <nb-radio [value]="item.option2">{{item.option2}}</nb-radio>
+                      <nb-radio [value]="item.option3">{{item.option3}}</nb-radio>
+                      <nb-radio [value]="item.option4">{{item.option4}}</nb-radio>
+                </nb-radio-group>
+            </div>
+            <div class="row">
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="text-center">
+        <button (click)="submit()" nbButton status="primary" size="medium" class="text-center mb-3">
+            submit
+        </button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isSubmitted">
+    <nb-card accent="success">
+      <nb-card-header class="text-center">
+          <h2>
+            Good job on completing the quiz.
+          </h2>
+      </nb-card-header>
+      <nb-card-body>
+        <h4>
+          The scores have been displayed below.
+        </h4>
+        <div class="scores mt-3">
+          <h5>Total Marks Scored: <span style="color: rgb(241, 255, 250);">{{marksGot}}</span></h5>
+          <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
+          <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
+          <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
+        </div>
+      </nb-card-body>
+      <nb-card-footer class="text-center">
+        <button [routerLink]="'/user-dashboard/0'" nbButton status="danger" size="small">
+          Home
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </ng-container>
+    </div>
+    <div class="col-md-2">
+      Progress
+    </div>
+  </div>
+</div>

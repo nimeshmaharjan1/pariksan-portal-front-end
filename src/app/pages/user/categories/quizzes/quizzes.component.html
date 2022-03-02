@@ -1,11 +1,13 @@
 <nb-card>
-  <nb-card-header  class="card-title">
+  <nb-card-header>
+    <h1 class="card-title">
       {{categoryTitle}}
+    </h1>
   </nb-card-header>
   <nb-card-body>
     <div class="row">
       <div class="col-md-6" *ngFor="let quiz of quizzes; let i = index">
-        <nb-card status="control">
+        <nb-card status="primary">
           <nb-card-header class="title">
               {{quiz.title}}
           </nb-card-header>
