@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  theme:any;
+  constructor(private themeService: NbThemeService) { }
 
   ngOnInit(): void {
+    this.themeService.onThemeChange().subscribe({
+      next: (data:any) => {
+        console.log(data);
+        this.theme = data;
+      }
+    })
   }
 
 }

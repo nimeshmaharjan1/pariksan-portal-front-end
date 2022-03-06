@@ -1,3 +1,11 @@
+* {
+  font-family: var(--labelFont);
+}
+
+h4,h6 {
+  font-weight: 900 !important;
+}
+
 .about {
   text-align: justify;
   font-family: var(--labelFont);
@@ -22,8 +30,22 @@ nb-icon{
     font-size: 7rem;
 }
 .heading {
-  font-size: 5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  opacity: 0.5;
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0.5;
+  }
+}
+
+.welcome {
+  h4 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  h6 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 }

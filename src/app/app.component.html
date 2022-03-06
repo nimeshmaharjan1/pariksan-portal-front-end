@@ -9,7 +9,6 @@
         <button nbButton outline status="primary" class="m-1" *ngIf="!isCompact" (click) = toggleCompact() >
           <nb-icon status="success" icon="menu-arrow-outline"></nb-icon>
         </button>
-        <!-- <a class="logo" [routerLink]="['']">Pariksan Portal</a> -->
       </div>
     </div>
 
@@ -24,7 +23,7 @@
     </div>
   </nb-layout-header>
 
-  <nb-sidebar state="expanded">
+  <nb-sidebar state="compacted">
     <div class="main-container">
       <app-sidebar></app-sidebar>
     </div>
