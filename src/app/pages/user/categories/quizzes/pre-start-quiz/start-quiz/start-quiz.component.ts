@@ -19,6 +19,8 @@ export class StartQuizComponent implements OnInit {
   correctAnswers: number = 0;
   wrongAnswers: number = 0;
   isSubmitted: boolean = false;
+  timer: any;
+  time: any;
 
 
   constructor(private locationSt: LocationStrategy,
@@ -36,16 +38,16 @@ export class StartQuizComponent implements OnInit {
       {
         next: (data: any) => {
           this.questions = data;
+          this.timer = this.questions.length * 1 * 60;
           this.questions.forEach(
             (question: any) => {
               question['selectedOption'] = '';
             }
           )
-          console.log(data);
+          this.startTimer();
         },
         error: (err) => {
           console.log(err);
-          
         }
       }
     )
@@ -72,29 +74,51 @@ export class StartQuizComponent implements OnInit {
       (result) => {
         if (result.isConfirmed) {
           this.isSubmitted = true;
-          this.questions.forEach(
-            (question: { selectedOption: any; answer: any; }) => {
-              if (question.selectedOption == question.answer) {
-                this.correctAnswers++;
-                let mark = this.questions[0].quiz.maxMarks / this.questions.length;
-                this.marksGot += mark;
-              }
-              if (question.selectedOption != '') {
-                this.attempted++;
-              }
-              if (question.selectedOption != question.answer) {
-                this.wrongAnswers++;
-              }
-            }
-          );
-          console.log('correct answers: ', this.correctAnswers);
-          console.log('total marks: ', this.marksGot);
-          console.log('attempted: ', this.attempted);
-          console.log('wrong: ', this.wrongAnswers);
-          
+          this.evaluateQuiz();
         }
       }
     )
+  }
+
+  startTimer() {
+      let timeOut = setInterval(
+        () => {
+          if (this.timer <= 0) {
+            this.evaluateQuiz();
+            clearInterval(timeOut);
+          } else {
+            this.timer--;
+          }
+        } , 1000
+      );
+  }
+
+  getTime() {
+    let m = Math.floor(this.timer/60);
+    let s = this.timer - m * 60;
+    return `${m} : ${s}`
+  }
+
+  evaluateQuiz() {
+    this.questions.forEach(
+      (question: { selectedOption: any; answer: any; }) => {
+        if (question.selectedOption == question.answer) {
+          this.correctAnswers++;
+          let mark = this.questions[0].quiz.maxMarks / this.questions.length;
+          this.marksGot += mark;
+        }
+        if (question.selectedOption != '') {
+          this.attempted++;
+        }
+        if (question.selectedOption != question.answer) {
+          this.wrongAnswers++;
+        }
+      }
+    );
+    console.log('correct answers: ', this.correctAnswers);
+    console.log('total marks: ', this.marksGot);
+    console.log('attempted: ', this.attempted);
+    console.log('wrong: ', this.wrongAnswers);
   }
 
 }

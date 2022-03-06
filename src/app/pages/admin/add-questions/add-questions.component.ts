@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-add-questions',
   templateUrl: './add-questions.component.html',
   styleUrls: ['./add-questions.component.scss']
 })
 export class AddQuestionsComponent implements OnInit {
+
   quizIdFromUrl;
   quizTitle;
   question = {  
