@@ -4,16 +4,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbInputModule, NbFormFieldModule, NbIconModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbTabsetModule, NbListModule, NbDialogModule, NbToggleModule, NbSelectModule, NbToastrModule, NbSpinnerModule, NbCheckboxModule, NbRadioModule, NbTooltipModule } from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbCardModule,
+  NbInputModule,
+  NbFormFieldModule,
+  NbIconModule,
+  NbButtonModule,
+  NbSidebarModule,
+  NbActionsModule,
+  NbMenuModule,
+  NbContextMenuModule,
+  NbUserModule,
+  NbTabsetModule,
+  NbListModule,
+  NbDialogModule,
+  NbToggleModule,
+  NbSelectModule,
+  NbToastrModule,
+  NbSpinnerModule,
+  NbCheckboxModule,
+  NbRadioModule,
+  NbTooltipModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { NavbarComponent } from './static/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './static/sidebar/sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './static/footer/footer.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -39,8 +62,8 @@ import { CategoriesComponent } from './pages/user/categories/categories.componen
 import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.component';
 import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/pre-start-quiz.component';
 import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +92,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CategoriesComponent,
     QuizzesComponent,
     PreStartQuizComponent,
-    StartQuizComponent
+    StartQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,10 +125,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NbCheckboxModule,
     NbRadioModule,
     MatProgressSpinnerModule,
-    NbTooltipModule
+    NbTooltipModule,
+    MatRadioModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,16 +3,15 @@ import { Injectable } from '@angular/core';
 import baseUrl from '../helper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   public getQuestionsOfQuiz(quizId) {
-    return this.http.get(`${baseUrl}/question/quiz/all/${quizId}`)
+    return this.http.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
   public getQuestion(questionId) {
-    return this.http.get(`${baseUrl}/question/${questionId}`)
+    return this.http.get(`${baseUrl}/question/${questionId}`);
   }
 
   public addQuestion(question) {
@@ -28,6 +27,10 @@ export class QuestionService {
   }
 
   public getShuffledQuestions(quizId) {
-    return this.http.get(`${baseUrl}/question/quiz/${quizId}`)
+    return this.http.get(`${baseUrl}/question/quiz/${quizId}`);
+  }
+
+  public evaluateQuiz(questions) {
+    return this.http.post(`${baseUrl}/question/evaluate-quiz`, questions);
   }
 }

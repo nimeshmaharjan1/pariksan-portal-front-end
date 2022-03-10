@@ -1,24 +1,38 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      Instructions
+    <div class="col-md-2" *ngIf="!isSubmitted">
+      <nb-card>
+        <nb-card-header class="text-center">
+          Instructions
+        </nb-card-header>
+        <nb-list class="instructions">
+          <nb-list-item>
+            Do not refresh the page otherwise you will get new questions in this quiz.
+          </nb-list-item>
+          <nb-list-item>
+            Do not switch between different tabs.
+          </nb-list-item>
+          <nb-list-item>
+            Do not minimize the window untill the quiz is completed or submitted.
+          </nb-list-item>
+        </nb-list>
+      </nb-card>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 text-center" [ngClass]="isSubmitted ? 'div-center' : ''">
       <ng-container *ngIf="!isSubmitted;">
         <div *ngFor="let item of questions;let i = index">
           <nb-card accent="success">
-            {{item.selectedOption}}
             <nb-card-header>
               Q.{{i + 1}} {{item.content}}
             </nb-card-header>
             <nb-card-body>
               <div class="row">
-                <nb-radio-group status="success" [(ngModel)]="item.selectedOption">
-                  <nb-radio [value]="item.option1">{{item.option1}}</nb-radio>
-                  <nb-radio [value]="item.option2">{{item.option2}}</nb-radio>
-                  <nb-radio [value]="item.option3">{{item.option3}}</nb-radio>
-                  <nb-radio [value]="item.option4">{{item.option4}}</nb-radio>
-                </nb-radio-group>
+                <mat-radio-group [(ngModel)]="item.givenAnswer" class="row">
+                  <mat-radio-button name="option1" [value]="item.option1">{{item.option1}}</mat-radio-button>
+                  <mat-radio-button name="option2" [value]="item.option2">{{item.option2}}</mat-radio-button>
+                  <mat-radio-button name="option3" [value]="item.option3">{{item.option3}}</mat-radio-button>
+                  <mat-radio-button name="option4" [value]="item.option4">{{item.option4}}</mat-radio-button>
+                </mat-radio-group>
               </div>
               <div class="row">
               </div>
@@ -35,10 +49,11 @@
         <nb-card accent="success">
           <nb-card-header class="text-center">
             <h2>
-              Good job on completing the quiz.
+              {{questions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this quiz at the
+              moment!'}}
             </h2>
           </nb-card-header>
-          <nb-card-body>
+          <nb-card-body *ngIf="questions.length > 1; else display">
             <h4>
               The scores have been displayed below.
             </h4>
@@ -49,15 +64,25 @@
               <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
             </div>
           </nb-card-body>
+          <ng-template #display></ng-template>
           <nb-card-footer class="text-center">
-            <button [routerLink]="'/user-dashboard/0'" nbButton status="danger" size="small">
-              Home
-            </button>
+            <div class="row justify-content-center">
+              <div class="col-md-2">
+                <button [routerLink]="'/user-dashboard/0'" ghost nbButton status="danger" size="small">
+                  Home
+                </button>
+              </div>
+              <div class="col-md-2">
+                <button (click)="printPage()" nbButton status="primary" size="small">
+                  Print
+                </button>
+              </div>
+            </div>
           </nb-card-footer>
         </nb-card>
       </ng-container>
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2 text-center" *ngIf="!isSubmitted">
       <nb-card class="sticky-card" accent="danger">
         <nb-card-header>
           <div class="row">
@@ -73,7 +98,8 @@
           </div>
         </nb-card-header>
         <nb-card-body class="mx-auto">
-          <mat-spinner class="mb-2" mode="determinate" color="accent" [value]="(timer / (questions.length * 1 * 60)) * 100"></mat-spinner>
+          <mat-spinner class="mb-2" mode="determinate" color="accent"
+            [value]="(timer / (questions.length * 1 * 60)) * 100"></mat-spinner>
           {{getTime()}}
         </nb-card-body>
       </nb-card>
