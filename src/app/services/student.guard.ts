@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from './login.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentGuard implements CanActivate {
+  constructor(private login: LoginService, private router: Router) {}
 
-  constructor(private login: LoginService,
-    private router: Router,
-    ) {}
-    
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    if (this.login.isLoggedIn() && this.login.getUserRole() === 'STUDENT') {
+      return true;
+    }
 
-      if(this.login.isLoggedIn() && this.login.getUserRole() === 'STUDENT') {
-        return true
-      }
-
-      this.router.navigate(['login']);
+    this.router.navigate(['']);
 
     return false;
   }
-  
 }

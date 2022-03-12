@@ -17,7 +17,7 @@ export class StartQuizComponent implements OnInit {
   attempted: any;
   marksGot: any;
   correctAnswers: any;
-  wrongAnswers: number = 0;
+  wrongAnswers: any;
   isSubmitted: boolean = false;
   timer: any;
   time: any;
@@ -95,6 +95,7 @@ export class StartQuizComponent implements OnInit {
         this.correctAnswers = data.correctAnswers;
         this.attempted = data.attempted;
         this.marksGot = data.marksGot;
+        this.wrongAnswers = data.wrongAnswers;
         this.isSubmitted = true;
       },
       error: (err) => {

@@ -1,63 +1,188 @@
-<div class="container">
-    <div class="heading title">
-        <h1 style="font-family: 'Montserrat', sans-serif;">
-            Pariksan Portal
-        </h1>
-    </div>
-    <div class="welcome row align-items-center" style="height: 450px;">
-        <div class="col-md-8">
-            <h4>
-                Welcome to Pariksan Portal
-            </h4>
-            <h6>
-                Nepal's #1 Online Mock Test Site.
-            </h6>
-        </div>
-        <div class="col-md-4 text-center">
-            Big Image
-        </div>
-    </div>
-    <div class="row align-items-center justify-content-around">
-        <div class="logo col-md-6">
-            <img src="../../../assets/logo.svg" alt="logo for home">
-        </div>
-        <div class="col-md-6">
-            <p class="p-4 about">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime tempora laborum tenetur, saepe atque, quibusdam explicabo, nostrum quidem adipisci obcaecati facere reprehenderit eaque alias consectetur libero ad eum labore nisi.
-            </p>
-        </div>
-    </div>
+<div class="whole">
     <div class="container">
-        <div class="row justify-content-evenly">
-            <div class="col-md-2">
-                <nb-card>
-                    <nb-card-header class="card-title">
-                        Surf
-                    </nb-card-header>
-                    <nb-card-body>
-                        <nb-icon icon="browser-outline" status="success"></nb-icon>
-                    </nb-card-body>
-                </nb-card>
+
+        <div class="row align-items-center">
+            <div class="col-md-8 mt-4">
+                <h1 class="nav-title mt-1">
+                    Pariksan Portal
+                </h1>
             </div>
-            <div class="col-md-2">
-                <nb-card>
-                    <nb-card-header class="card-title">
-                        Attempt
-                    </nb-card-header>
-                    <nb-card-body>
-                        <nb-icon icon="bulb-outline" status="warning"></nb-icon>
-                    </nb-card-body>
-                </nb-card>
+            <div class="col-md-4 mt-3">
+                <div class="row justify-content-end">
+                    <div class="col-md-4">
+                        <button nbButton size="large" status="primary" shape="round" routerLink="/signup">Sign
+                            Up</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button style="margin-left: -1rem;" nbButton size="large" status="primary" outline shape="round"
+                            routerLink="">Sign In</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2">
-                <nb-card>
-                    <nb-card-header class="card-title">
-                        Repeat
-                    </nb-card-header>
-                    <nb-card-body>
-                        <nb-icon icon="loader-outline" status="info"></nb-icon>
-                    </nb-card-body>
-                </nb-card>
+        </div>
+
+
+        <div class="hero-section mt-4">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6 mt-3">
+                    <p class="about" style="text-align: justify;">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime tempora laborum tenetur, saepe
+                        atque,
+                        quibusdam explicabo, nostrum quidem adipisci obcaecati facere reprehenderit eaque alias
+                        consectetur
+                        libero ad eum labore nisi.
+                    </p>
+                </div>
+                <div class="logo col-md-6">
+                    <img src="../../../assets/logo.svg" alt="logo for home">
+                </div>
+            </div>
+        </div>
+
+        <div class="search-bar row justify-content-center mt-4" style="margin-bottom: 7rem;">
+            <div class="col-md-4">
+                <nb-form-field>
+                    <input type="text" fieldSize="large" nbInput shape="round" placeholder="Search" outline>
+                    <button nbSuffix nbButton shape="round" size="large" ghost status="primary">
+                        <nb-icon icon="search"></nb-icon>
+                    </button>
+                </nb-form-field>
+            </div>
+        </div>
+
+        <div class="offer mt-5" style="margin-bottom: 7rem;">
+            <h1 class="mb-4">What We Offer</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="offer-div">
+                        <h2>
+                            Live Test
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minus in dignissimos
+                            veniam dolorem, voluptatibus, tempore accusantium asperiores, accusamus eos deserunt non a
+                            quos excepturi quidem nesciunt! Consequuntur, quod repellendus.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="offer-div">
+                        <h2>
+                            High Yield Questions
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minus in dignissimos
+                            veniam dolorem, voluptatibus, tempore accusantium asperiores, accusamus eos deserunt non a
+                            quos excepturi quidem nesciunt! Consequuntur, quod repellendus.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="offer-div">
+                        <h2>
+                            Insightful Analytics
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minus in dignissimos
+                            veniam dolorem, voluptatibus, tempore accusantium asperiores, accusamus eos deserunt non a
+                            quos excepturi quidem nesciunt! Consequuntur, quod repellendus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section mt-5">
+            <h1>
+                Our Students are our biggest fans.
+            </h1>
+            <div class="col-md-6">
+                <p class="text-justify mt-4" style="line-height: 1.9em;">
+                    We do not like to brag, but we do not mind letting our students to do it for us. <br>
+                    Here are a few nice things folks have said about our services over the years.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="fans">
+                    <h2 class="quote-mark">
+                        "
+                    </h2>
+                    <h3>
+                        This is an amazing mock test app!
+                    </h3>
+                    <p>
+                        This was an amazing application! I cannot say enough good things about the mock tests and
+                        quizzes. Angela is an
+                        amazing instructor, and did an extremely great job teaching all that was promised in the course
+                        description.
+                    </p>
+                    <nb-user picture="../../../assets/default.png" size="giant" name="Kushal Maharjan"
+                        title="Front-End Developer">
+                    </nb-user>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="fans">
+                    <h2 class="quote-mark">
+                        "
+                    </h2>
+                    <h3>
+                        This is an amazing mock test app!
+                    </h3>
+                    <p>
+                        This was an amazing application! I cannot say enough good things about the mock tests and
+                        quizzes. Angela is an
+                        amazing instructor, and did an extremely great job teaching all that was promised in the course
+                        description.
+                    </p>
+                    <nb-user size="giant" name="John Doe" title="Computer Engineering"
+                        picture="../../../assets/default.png">
+                    </nb-user>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-nav row align-items-center">
+                <div class="col-md-4 my-5">
+                    <h1>Pariksan Portal</h1>
+                </div>
+                <div class="col-md-2 my-5">
+                    <p class="font-weight-bold" style="font-weight: bold;">Navigation</p>
+                    <p>Sign In</p>
+                    <p>Sign Up</p>
+                    <p>Home</p>
+                    <p>Categories</p>
+                </div>
+                <div class="col-md-2 my-5">
+                    <p class="font-weight-bold" style="font-weight: bold;">Resources</p>
+                    <p>Blogs</p>
+                    <p>News & Updates</p>
+                    <p>Career</p>
+                </div>
+                <div class="col-md-4">
+                    <p style="font-weight: bold">Stay up to Date</p>
+                    <p>Subscribe to our newsletter to get the latest updates and news.</p>
+                    <nb-form-field>
+                        <input type="text" fieldSize="large" nbInput shape="round" placeholder="E-mail" outline>
+                        <button nbSuffix nbButton shape="round" size="large" ghost status="primary">
+                            <nb-icon icon="navigation-2"></nb-icon>
+                        </button>
+                    </nb-form-field>
+                </div>
+            </div>
+            <div class="footer-last">
+                <div class="row">
+                    <div class="col-md-6">Pariksan Portal. All rights reserved.</div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-end">
+                            <p style="margin-right: 2rem">Terms & Conditions</p>
+                            <p>Privacy Policy</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

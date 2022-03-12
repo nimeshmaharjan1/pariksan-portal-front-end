@@ -6,39 +6,41 @@
     <div class="col-md-3">
       <nb-card size="tiny">
         <nb-card-body>
-            <h4>
-                Attempts
-                <hr>
-            </h4>
-            <p>
-                Attempts
-            </p>
+          <h4>
+            Attempts
+            <hr>
+          </h4>
+          <p>
+            Attempts
+          </p>
         </nb-card-body>
       </nb-card>
     </div>
     <div class="col-md-3">
       <nb-card size="tiny">
         <nb-card-body>
-            <h4>
-                Quiz
-                <hr>
-            </h4>
-            <p>
-                Best Score
-            </p>
+          <h4>
+            Quiz
+            <hr>
+          </h4>
+          <p>
+            Best Score
+          </p>
         </nb-card-body>
       </nb-card>
     </div>
     <div class="col-md-6">
       <nb-card size="tiny">
         <nb-card-body>
-            <h4>
-                Thought of the day
-                <hr>
-            </h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, debitis ducimus voluptatum quibusdam cum, esse earum culpa labore, deleniti quas rem? Corrupti minus exercitationem eaque aperiam tenetur qui numquam expedita.
-                </p>
+          <h4>
+            Thought of the day
+            <hr>
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, debitis ducimus voluptatum quibusdam cum,
+            esse earum culpa labore, deleniti quas rem? Corrupti minus exercitationem eaque aperiam tenetur qui numquam
+            expedita.
+          </p>
         </nb-card-body>
       </nb-card>
     </div>
@@ -50,13 +52,13 @@
           <h4>
             Categories</h4>
         </nb-card-header>
-            <nb-list>
-                <nb-list-item *ngFor="let category of categories">
-                  <button [routerLink]="'/user-dashboard/' + category.categoryId" style="color: white;" nbButton ghost status="basic">
-                    {{category.title}}
-                  </button>
-                </nb-list-item>
-            </nb-list>
+        <nb-list>
+          <nb-list-item *ngFor="let category of categories">
+            <button [routerLink]="'/user-dashboard/' + category.categoryId" nbButton ghost status="basic">
+              {{category.title}}
+            </button>
+          </nb-list-item>
+        </nb-list>
       </nb-card>
     </div>
     <div class="col-md-6">
@@ -66,7 +68,7 @@
             Available Quizzes
           </h4>
         </nb-card-header>
-            <app-display-quiz></app-display-quiz>
+        <app-display-quiz></app-display-quiz>
       </nb-card>
     </div>
   </div>

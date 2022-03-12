@@ -1,48 +1,56 @@
-<nb-layout>
+<ng-container *ngIf="router.url.includes('home')">
+  <app-home></app-home>
+</ng-container>
+<ng-container *ngIf="!router.url.includes('home')">
+  <nb-layout>
 
-  <nb-layout-header fixed>
-    <div class="header-container hidden-print">
-      <div class="logo-container">
-        <button nbButton outline status="primary" class="m-1" *ngIf="isCompact" (click) = toggleCompact()  >
-          <nb-icon status="success" icon="menu-outline"></nb-icon>
-        </button>
-        <button nbButton outline status="primary" class="m-1" *ngIf="!isCompact" (click) = toggleCompact() >
-          <nb-icon status="success" icon="menu-arrow-outline"></nb-icon>
-        </button>
+    <nb-layout-header fixed>
+      <div class="header-container hidden-print">
+        <div class="logo-container">
+          <button nbButton outline status="primary" class="m-1" *ngIf="isCompact" (click)=toggleCompact()>
+            <nb-icon status="success" icon="menu-outline"></nb-icon>
+          </button>
+          <button nbButton outline status="primary" class="m-1" *ngIf="!isCompact" (click)=toggleCompact()>
+            <nb-icon status="success" icon="menu-arrow-outline"></nb-icon>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="header-container another-header">
-      <nb-actions size="medium">
-        <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/login']">Login</nb-action>   
-        <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/signup']">Register</nb-action>
-        <nb-action *ngIf="isLoggedIn && user" class="control-item" style="color: rgb(101, 223, 194);font-size: 1rem">
-          <nb-icon icon="person-outline" style="font-size: 1.4rem;" class="m-1"></nb-icon>{{user.username}}</nb-action>
-        <nb-action (click) = logout() *ngIf="isLoggedIn" class="control-item logout-item" [routerLink]="['/admin/users']">Logout</nb-action>
-      </nb-actions>
-    </div>
-  </nb-layout-header>
-
-  <nb-sidebar state="compacted">
-    <div class="main-container">
-      <app-sidebar></app-sidebar>
-    </div>
-  </nb-sidebar>
-
-  <nb-layout-column>
-    <app-spinner></app-spinner>
-
-    <router-outlet></router-outlet>
-
-  </nb-layout-column>
-
-  <nb-layout-footer>
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <app-footer></app-footer>
-        <nb-toggle labelPosition="left" (checkedChange)="changeMode()">{{isDarkMode ? 'Go Light' : 'Go Dark'}}</nb-toggle>
+      <div class="header-container another-header">
+        <nb-actions size="medium">
+          <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/']">Login</nb-action>
+          <nb-action *ngIf="!isLoggedIn" class="control-item" [routerLink]="['/signup']">Register</nb-action>
+          <nb-action *ngIf="isLoggedIn && user" class="control-item" style="color: rgb(101, 223, 194);font-size: 1rem">
+            <nb-icon icon="person-outline" style="font-size: 1.4rem;" class="m-1"></nb-icon>{{user.username}}
+          </nb-action>
+          <nb-action (click)=logout() *ngIf="isLoggedIn" class="control-item logout-item"
+            [routerLink]="['/admin/users']">Logout</nb-action>
+        </nb-actions>
       </div>
-    </div>
-  </nb-layout-footer>
+    </nb-layout-header>
 
-</nb-layout>
+    <nb-sidebar state="compacted">
+      <div class="main-container">
+        <app-sidebar></app-sidebar>
+      </div>
+    </nb-sidebar>
+
+    <nb-layout-column>
+      <app-spinner></app-spinner>
+
+      <router-outlet></router-outlet>
+
+    </nb-layout-column>
+
+    <nb-layout-footer>
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <app-footer></app-footer>
+          <nb-toggle labelPosition="left" (checkedChange)="changeMode()">{{isDarkMode ? 'Go Dark' : 'Go Light'}}
+          </nb-toggle>
+        </div>
+      </div>
+    </nb-layout-footer>
+
+  </nb-layout>
+</ng-container>

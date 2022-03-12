@@ -5,29 +5,28 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-
   items: NbMenuItem[] = [
     {
       title: 'Home',
-      icon: {icon:'home-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/',
+      icon: { icon: 'home-outline', options: { animation: { type: 'zoom' } } },
+      link: '/home',
     },
     {
       title: 'About Us',
-      icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
+      icon: { icon: 'list-outline', options: { animation: { type: 'zoom' } } },
     },
     {
       title: 'Sign Up',
       icon: 'checkmark-circle-outline',
-      link: '/signup'
+      link: '/signup',
     },
     {
       title: 'Login',
       icon: 'log-in-outline',
-      link: '/login'
+      link: '/login',
     },
     {
       title: 'Privacy Policy',
@@ -37,54 +36,69 @@ export class SidebarComponent implements OnInit {
   userItems: NbMenuItem[] = [
     {
       title: 'Home',
-      icon: {icon:'home-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/',
+      icon: { icon: 'home-outline', options: { animation: { type: 'zoom' } } },
+      link: '/home',
     },
     {
       title: 'Dashboard',
-      icon: {icon:'layout-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/user-dashboard/0'
+      icon: {
+        icon: 'layout-outline',
+        options: { animation: { type: 'zoom' } },
+      },
+      link: '/user-dashboard/0',
     },
     {
       title: 'Profile',
-      icon: {icon:'smiling-face-outline',options: {animation:{ type: 'zoom' }}},
+      icon: {
+        icon: 'smiling-face-outline',
+        options: { animation: { type: 'zoom' } },
+      },
       link: '/user-dashboard/user-profile',
     },
     {
       title: 'Categories',
-      icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
-      link: 'user-dashboard/category/:categoryId'
+      icon: { icon: 'list-outline', options: { animation: { type: 'zoom' } } },
+      link: 'user-dashboard/category/:categoryId',
     },
     {
       title: 'Logout',
-      icon: {icon:'unlock-outline',options: {animation:{ type: 'zoom' }}},
+      icon: {
+        icon: 'unlock-outline',
+        options: { animation: { type: 'zoom' } },
+      },
     },
   ];
   adminItems: NbMenuItem[] = [
     {
       title: 'Home',
-      icon: {icon:'home-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/',
+      icon: { icon: 'home-outline', options: { animation: { type: 'zoom' } } },
+      link: '/home',
     },
     {
       title: 'Dashboard',
-      icon: {icon:'layout-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/admin'
+      icon: {
+        icon: 'layout-outline',
+        options: { animation: { type: 'zoom' } },
+      },
+      link: '/admin',
     },
     {
       title: 'Profile',
-      icon: {icon:'smiling-face-outline',options: {animation:{ type: 'zoom' }}},
+      icon: {
+        icon: 'smiling-face-outline',
+        options: { animation: { type: 'zoom' } },
+      },
       link: '/admin/profile',
     },
     {
       title: 'Categories',
-      icon: {icon:'list-outline',options: {animation:{ type: 'zoom' }}},
-      link: '/admin/categories'
+      icon: { icon: 'list-outline', options: { animation: { type: 'zoom' } } },
+      link: '/admin/categories',
     },
     {
       title: 'Quizzes',
-      icon: {icon:'book-outline',options: {animation:{ type: 'zoom' }}},
-      link: 'admin/quizzes'
+      icon: { icon: 'book-outline', options: { animation: { type: 'zoom' } } },
+      link: 'admin/quizzes',
     },
     // {
     //   title: 'Logout',
@@ -92,8 +106,7 @@ export class SidebarComponent implements OnInit {
     // },
   ];
 
-  constructor(public login: LoginService) { }
+  constructor(public login: LoginService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

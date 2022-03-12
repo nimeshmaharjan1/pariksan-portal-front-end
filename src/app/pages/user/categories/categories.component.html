@@ -1,20 +1,16 @@
-<nb-card>
+<nb-card accent="primary">
     <nb-card-header class="card-title">
-        Categories
+        <h1 class="card-title">
+            Categories
+        </h1>
     </nb-card-header>
     <nb-card-body>
-        <!-- <nb-list>
-            <nb-list-item *ngFor="let category of categories">
-                <button [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title" nbButton ghost status="basic">
-                    {{category.title}}
-                </button>
-            </nb-list-item>
-        </nb-list> -->
         <div class="container">
             <div class="row">
-                <div class="col-md-4" *ngFor="let category of categories">
-                    <nb-card status="primary" class="categories" size="tiny" [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title">
-                        <nb-card-header>
+                <div class="col-md-6" *ngFor="let category of categories">
+                    <nb-card status="primary" class="categories" size="tiny"
+                        [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title">
+                        <nb-card-header class="category-title">
                             {{category.title}}
                         </nb-card-header>
                         <nb-card-body>

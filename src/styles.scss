@@ -1,11 +1,9 @@
+@use "themes" as *;
 
-
-@use 'themes' as *;
-
-@use '@nebular/theme/styles/globals' as *;
+@use "@nebular/theme/styles/globals" as *;
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -17,83 +15,89 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $pariksan_portal-frontend-primary: mat.define-palette(mat.$indigo-palette);
-$pariksan_portal-frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$pariksan_portal-frontend-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
 
 // The warn palette is optional (defaults to red).
 $pariksan_portal-frontend-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$pariksan_portal-frontend-theme: mat.define-light-theme((
-  color: (
-    primary: $pariksan_portal-frontend-primary,
-    accent: $pariksan_portal-frontend-accent,
-    warn: $pariksan_portal-frontend-warn,
+$pariksan_portal-frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $pariksan_portal-frontend-primary,
+      accent: $pariksan_portal-frontend-accent,
+      warn: $pariksan_portal-frontend-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($pariksan_portal-frontend-theme);
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 
 @include nb-install() {
   @include nb-theme-global();
-};
-/* You can add global styles to this file, and also import other style files */
-:root{
-  --mainFont: 'Roboto', sans-serif;
-  --labelFont: 'Montserrat', sans-serif;
-  --bodyFont: 'Roboto Mono', monospace;
 }
-*{
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --mainFont: "Roboto", sans-serif;
+  --labelFont: "Montserrat", sans-serif;
+  --bodyFont: "Roboto Mono", monospace;
+}
+* {
   font-family: var(--labelFont) !important;
   line-height: 1.9em;
 }
-.textCenter{
+.textCenter {
   text-align: center;
 }
-label{
-    font-family: var(--labelFont);
-    padding: 0.3rem;
+label {
+  font-family: var(--labelFont);
+  padding: 0.3rem;
 }
-.pageHeader{
+.pageHeader {
   letter-spacing: -1px;
   margin: -2.5rem auto -6rem auto;
   font-size: 10rem;
   font-weight: bold;
   z-index: 0; /*The z-index property specifies the stack order of an element.*/
-  opacity: .1;
+  opacity: 0.3;
 }
 @media screen and (max-width: 600px) {
-  .pageHeader{
+  .pageHeader {
     font-size: 5rem;
-    line-height: .9em;
+    line-height: 0.9em;
     margin-bottom: -9rem;
     margin-top: -1rem;
   }
 }
-.registerBtn{
+.registerBtn {
   margin-right: 0.8rem;
   margin-top: 0.2rem;
 }
-a{
-  font-family: 'Montserrat', sans-serif;
+a {
+  font-family: "Montserrat", sans-serif;
 }
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 nb-tab p {
   font-family: var(--labelFont);
   letter-spacing: 0.5px;
 }
-
 
 .logo {
   padding: 0 1.25rem;
@@ -108,17 +112,17 @@ nb-tab p {
 }
 
 .card-title {
-  font-family: var(--labelFont);
+  font-family: var(--labelFont) !important;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  font-size: 2.5rem;
+  letter-spacing: 0.5px !important;
+  font-size: 2rem !important;
   margin-top: 0.2rem;
 }
 
 .list-title {
-    font-family: var(--bodyFont);
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-family: var(--bodyFont);
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .subheader {
   font-family: var(--bodyFont);
@@ -127,12 +131,14 @@ nb-tab p {
   font-weight: 400;
 }
 .addTitle {
-    font-family: var(--bodyFont);
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+  font-family: var(--bodyFont);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 
-input, textarea, nb-toggle {
+input,
+textarea,
+nb-toggle {
   font-family: var(--labelFont) !important;
   font-size: 12px !important;
 }
@@ -144,8 +150,11 @@ input, textarea, nb-toggle {
 .toggle-label {
   letter-spacing: 1px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}

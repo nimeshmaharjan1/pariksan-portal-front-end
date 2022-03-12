@@ -1,51 +1,106 @@
-* {
-  font-family: var(--labelFont);
+$title: "Montserrat", sans-serif;
+$sub-title: "Roboto Mono", monospace;
+$main-color: rgb(89, 89, 209);
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Passion+One:wght@900&family=Paytone+One&family=Raleway:wght@600&display=swap");
+
+@mixin h1-style {
+  font-size: 2.5rem !important;
+  font-weight: bold;
+}
+@mixin title {
+  color: rgb(89, 89, 209) !important;
+  font-family: "Paytone One", sans-serif !important;
+  font-size: 4rem;
 }
 
-h4,h6 {
-  font-weight: 900 !important;
+@mixin offer-div {
+  padding: 1.2rem;
+  border-radius: 24px;
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3;
+  background-image: linear-gradient(315deg, #ffffff 0%, #e3eeff 74%);
+  // width: 24rem;
+  h2 {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+  }
+  p {
+    text-align: justify;
+    color: $main-color !important;
+  }
 }
 
-.about {
-  text-align: justify;
-  font-family: var(--labelFont);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+.whole {
+  height: auto;
+  width: 100%;
+  // background: linear-gradient(132.22deg, #dae1f4 11.01%, #ffffff 66.16%);
+  background: linear-gradient(132.22deg, #7991d1 11.01%, #e6f1fd 66.16%);
+  scroll-behavior: smooth;
 }
 
-.logo img {
-    width: 40rem;
-    height: 35rem;
-}
-.card-title{
-    font-size: 1.2rem;
-    text-align: center;
+.nav-title {
+  @include title;
 }
 
-nb-card-body{
-    text-align: center;
+.hero-section {
+  .about {
+    color: $main-color !important;
+  }
 }
-nb-icon{
-    font-size: 7rem;
+
+input,
+button {
+  box-shadow: 0 0 5pt 0.5pt #d3d3d3;
+  &[type="text"]:focus {
+    box-shadow: 0 0 5pt 2pt #d3d3d3;
+    outline-width: 0px;
+  }
 }
-.heading {
+
+.offer {
   h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    opacity: 0.5;
+    @include h1-style();
+  }
+  .offer-div {
+    @include offer-div();
   }
 }
 
-.welcome {
-  h4 {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+.info-section {
+  h1 {
+    @include h1-style();
   }
-  h6 {
-    font-size: 2rem;
+  p {
+    font-weight: bold;
+    color: $main-color !important;
+  }
+}
+
+.fans {
+  margin-bottom: 10rem;
+  @include offer-div();
+  min-height: 16rem;
+  max-height: 22rem;
+  overflow: hidden;
+  h2 {
+    font-size: 10rem !important;
+    margin-bottom: -5.5rem;
+    margin-top: -1.5rem;
+    font-family: "Passion One", cursive !important;
+  }
+  h3 {
+    font-size: 1.2rem;
     font-weight: bold;
   }
+}
+
+.footer {
+  border-top: 4px solid rgb(89, 89, 209);
+  .footer-nav h1 {
+    font-size: 2rem !important;
+    @include title();
+  }
+}
+
+.quote-mark {
+  color: $main-color;
 }
