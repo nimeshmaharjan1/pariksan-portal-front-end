@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NbThemeModule,
   NbLayoutModule,
-  NbCardModule,
   NbInputModule,
   NbFormFieldModule,
   NbIconModule,
@@ -27,6 +26,7 @@ import {
   NbCheckboxModule,
   NbRadioModule,
   NbTooltipModule,
+  NbCardModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
@@ -64,6 +64,7 @@ import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start
 import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
+import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/difficulty/difficulty.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { MatRadioModule } from '@angular/material/radio';
     QuizzesComponent,
     PreStartQuizComponent,
     StartQuizComponent,
+    DifficultyComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +129,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatProgressSpinnerModule,
     NbTooltipModule,
     MatRadioModule,
+    NbDialogModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],

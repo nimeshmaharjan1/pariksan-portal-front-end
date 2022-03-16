@@ -1,10 +1,18 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {
+  NbDialogService,
+  NbSpinnerComponent,
+  NbSpinnerService,
+} from '@nebular/theme';
 import { TimeoutError } from 'rxjs';
 import { QuestionService } from 'src/app/services/question/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
+import { DifficultyComponent } from './difficulty/difficulty.component';
+import { SelectDifficultyComponent } from './select-difficulty/select-difficulty.component';
 
 @Component({
   selector: 'app-start-quiz',
@@ -21,14 +29,18 @@ export class StartQuizComponent implements OnInit {
   isSubmitted: boolean = false;
   timer: any;
   time: any;
+  showQuestionsComponent = false;
 
   constructor(
     private locationSt: LocationStrategy,
     private route: ActivatedRoute,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private dialogService: NbDialogService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
+    this.open();
     this.getQuizId();
     this.preventBackButton();
     this.getQuestions();
@@ -37,10 +49,8 @@ export class StartQuizComponent implements OnInit {
   getQuestions() {
     this.questionService.getShuffledQuestions(this.quizId).subscribe({
       next: (data: any) => {
-        console.log({ data });
         this.questions = data;
         this.timer = this.questions.length * 1 * 60;
-        this.startTimer();
       },
       error: (err) => {
         console.log(err);
@@ -70,7 +80,7 @@ export class StartQuizComponent implements OnInit {
     });
   }
 
-  startTimer() {
+  async startTimer() {
     let timeOut = setInterval(() => {
       if (this.timer <= 0) {
         this.evaluateQuiz();
@@ -91,7 +101,6 @@ export class StartQuizComponent implements OnInit {
   evaluateQuiz() {
     this.questionService.evaluateQuiz(this.questions).subscribe({
       next: (data: any) => {
-        console.log('evaluation: ', data);
         this.correctAnswers = data.correctAnswers;
         this.attempted = data.attempted;
         this.marksGot = data.marksGot;
@@ -105,5 +114,17 @@ export class StartQuizComponent implements OnInit {
   }
   printPage() {
     window.print();
+  }
+  open() {
+    this.dialogService.open(DifficultyComponent).onClose.subscribe({
+      next: (data) => {
+        console.log(data);
+        this.showQuestionsComponent = true;
+        this.startTimer();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

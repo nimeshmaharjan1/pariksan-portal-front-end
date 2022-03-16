@@ -14,6 +14,7 @@
         <div class="d-flex align-items-center">
           <h4>
             <strong>Question. {{i + 1}} </strong>{{question.content}}
+            <button class="btn btn-danger">Level : <span class="bagde">{{question.difficultyLevel}}</span></button>
           </h4>
         </div>
         <div class="row">
@@ -88,10 +89,12 @@
         </div>
         <div class="mb-3">
           <p><span style="color:#478e8a;"><strong>Answer:</strong></span> {{question.answer}}</p>
-          <button nbButton status="primary" size="small" [routerLink]="'/admin/update-question/' + quizId + '/' + quizTitle + '/' + question.questionId">
+          <button nbButton status="primary" size="small"
+            [routerLink]="'/admin/update-question/' + quizId + '/' + quizTitle + '/' + question.questionId">
             Update
           </button>
-          <button size="medium" (click)="deleteQuestion(question.questionId)" style="margin-left: 1rem" nbButton ghost status="danger">
+          <button size="medium" (click)="deleteQuestion(question.questionId)" style="margin-left: 1rem" nbButton ghost
+            status="danger">
             <nb-icon icon="trash-outline"></nb-icon>
           </button>
           <hr>

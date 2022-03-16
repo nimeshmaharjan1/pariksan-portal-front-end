@@ -1,0 +1,18 @@
+<nb-card>
+    <nb-card-header>
+        Select Difficulty Level
+    </nb-card-header>
+    <nb-card-body>
+        <input #difficulty nbInput type="text">
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="row">
+            <div class="col-md-6">
+                <button nbButton status="success" size="small" (click)="submit(difficulty.value)">Submit</button>
+            </div>
+            <div class="col-md-6">
+                <button nbButton status="danger" size="small" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </nb-card-footer>
+</nb-card>

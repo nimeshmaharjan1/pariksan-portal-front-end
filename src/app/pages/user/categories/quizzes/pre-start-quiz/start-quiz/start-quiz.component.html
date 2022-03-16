@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="showQuestionsComponent">
   <div class="row">
     <div class="col-md-2" *ngIf="!isSubmitted">
       <nb-card>
@@ -18,7 +18,7 @@
         </nb-list>
       </nb-card>
     </div>
-    <div class="col-md-8 text-center" [ngClass]="isSubmitted ? 'div-center' : ''">
+    <div class="col-md-8" [ngClass]="isSubmitted ? 'div-center' : ''">
       <ng-container *ngIf="!isSubmitted;">
         <div *ngFor="let item of questions;let i = index">
           <nb-card accent="success">
