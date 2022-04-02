@@ -4,8 +4,8 @@
 <ng-container *ngIf="!router.url.includes('home')">
   <nb-layout>
 
-    <nb-layout-header fixed>
-      <div class="header-container hidden-print">
+    <nb-layout-header fixed class="disable-print">
+      <div class="header-container disable-print">
         <div class="logo-container">
           <button nbButton outline status="primary" class="m-1" *ngIf="isCompact" (click)=toggleCompact()>
             <nb-icon status="success" icon="menu-outline"></nb-icon>
@@ -29,8 +29,8 @@
       </div>
     </nb-layout-header>
 
-    <nb-sidebar state="compacted">
-      <div class="main-container">
+    <nb-sidebar state="compacted" class="disable-print">
+      <div class="main-container disable-print">
         <app-sidebar></app-sidebar>
       </div>
     </nb-sidebar>
@@ -42,8 +42,8 @@
 
     </nb-layout-column>
 
-    <nb-layout-footer>
-      <div class="container">
+    <nb-layout-footer class="disable-print">
+      <div class="container disable-print">
         <div class="d-flex justify-content-between align-items-center">
           <app-footer></app-footer>
           <nb-toggle labelPosition="left" (checkedChange)="changeMode()">{{isDarkMode ? 'Go Dark' : 'Go Light'}}

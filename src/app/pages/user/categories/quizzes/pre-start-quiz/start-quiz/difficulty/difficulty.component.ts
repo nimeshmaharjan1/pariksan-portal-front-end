@@ -12,7 +12,7 @@ export class DifficultyComponent implements OnInit {
     protected dialogRef: NbDialogRef<DifficultyComponent>,
     private spinner: NgxSpinnerService
   ) {}
-
+  difficultyLevel;
   ngOnInit(): void {}
 
   cancel() {

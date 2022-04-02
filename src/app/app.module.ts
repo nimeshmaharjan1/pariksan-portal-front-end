@@ -27,6 +27,7 @@ import {
   NbRadioModule,
   NbTooltipModule,
   NbCardModule,
+  NbBadgeModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
@@ -130,6 +131,7 @@ import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-q
     NbTooltipModule,
     MatRadioModule,
     NbDialogModule.forRoot(),
+    NbBadgeModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
