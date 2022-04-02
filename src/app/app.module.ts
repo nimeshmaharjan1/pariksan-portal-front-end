@@ -101,7 +101,7 @@ import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-q
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbEvaIconsModule,
     FormsModule,

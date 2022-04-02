@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   layout: any = {};
   sidebar: any = {};
   isCompact = true;
-  isDarkMode = true;
+  isDarkMode = false;
 
   private alive = true;
 
