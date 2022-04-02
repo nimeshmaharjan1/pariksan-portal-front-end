@@ -23,6 +23,7 @@ import { CategoriesComponent } from './pages/user/categories/categories.componen
 import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.component';
 import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/pre-start-quiz.component';
 import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
+import {UpdateUserComponent} from "./pages/user/update-user/update-user.component";
 
 const routes: Routes = [
   {
@@ -91,6 +92,10 @@ const routes: Routes = [
       {
         path: 'user-profile',
         component: UserProfileComponent,
+      },
+      {
+        path: 'update-user',
+        component: UpdateUserComponent
       },
       {
         path: ':categoryId',

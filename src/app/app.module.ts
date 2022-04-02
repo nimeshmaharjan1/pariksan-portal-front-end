@@ -66,6 +66,7 @@ import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-qu
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/difficulty/difficulty.component';
+import { UpdateUserComponent } from './pages/user/update-user/update-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,7 @@ import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-q
     PreStartQuizComponent,
     StartQuizComponent,
     DifficultyComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

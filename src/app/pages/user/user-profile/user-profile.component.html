@@ -46,9 +46,11 @@
                       <p>Status - {{user.userEnabled === true ? 'Active' : 'In-active'}}</p>
                     </li>
                   </ul>
-                  <button nbButton size="small" status="primary">
-                    Update
-                  </button>
+                  <div class="text-center mt-2">
+                    <button (click)="updateUser()" nbButton size="small" status="primary">
+                      Update
+                    </button>
+                  </div>
                 </nb-tab>
               </nb-tabset>
             </nb-card-body>
