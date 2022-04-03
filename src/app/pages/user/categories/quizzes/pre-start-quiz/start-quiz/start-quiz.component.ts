@@ -37,6 +37,10 @@ export class StartQuizComponent implements OnInit {
   noLevelOneQuestions = false;
   noLevelTwoQuestions = false;
   noLevelThreeQuestions = false;
+  percentage;
+  grade;
+  value;
+  color;
   constructor(
     private locationSt: LocationStrategy,
     private route: ActivatedRoute,
@@ -79,6 +83,7 @@ export class StartQuizComponent implements OnInit {
           this.timer = this.levelThreeQuestions.length * 1 * 60;
           this.startTimer();
         }
+        console.log(data);
       },
       error: (err) => {
         console.log(err);
@@ -134,6 +139,20 @@ export class StartQuizComponent implements OnInit {
             this.levelOneQuestions[0].quiz.maxMarks /
             this.levelOneQuestions.length;
           this.marksGot += singleMarks;
+          this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
+          if (this.percentage >= 80) {
+            this.grade = 'A+';
+            this.value = 100;
+            this.color = 'primary';
+          } else if (this.percentage >= 60 && this.percentage <= 80) {
+            this.grade = 'B+';
+            this.value = 60;
+            this.color = 'accent';
+          } else if (this.percentage >= 40 && this.percentage <= 60) {
+            this.grade = 'C+';
+            this.value = 40;
+            this.color = 'warn';
+          }
         } else {
           this.wrongAnswers++;
         }
@@ -150,6 +169,20 @@ export class StartQuizComponent implements OnInit {
             this.levelTwoQuestions[0].quiz.maxMarks /
             this.levelTwoQuestions.length;
           this.marksGot += singleMarks;
+          this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
+          if (this.percentage >= 80) {
+            this.grade = 'A+';
+            this.value = 100;
+            this.color = 'primary';
+          } else if (this.percentage >= 60 && this.percentage <= 80) {
+            this.grade = 'B+';
+            this.value = 60;
+            this.color = 'accent';
+          } else if (this.percentage >= 40 && this.percentage <= 60) {
+            this.grade = 'C+';
+            this.value = 40;
+            this.color = 'warn';
+          }
         } else {
           this.wrongAnswers++;
         }
@@ -166,6 +199,20 @@ export class StartQuizComponent implements OnInit {
             this.levelThreeQuestions[0].quiz.maxMarks /
             this.levelThreeQuestions.length;
           this.marksGot += singleMarks;
+          this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
+          if (this.percentage >= 80) {
+            this.grade = 'A+';
+            this.value = 100;
+            this.color = 'primary';
+          } else if (this.percentage >= 60 && this.percentage <= 80) {
+            this.grade = 'B+';
+            this.value = 60;
+            this.color = 'accent';
+          } else if (this.percentage >= 40 && this.percentage <= 60) {
+            this.grade = 'C+';
+            this.value = 40;
+            this.color = 'warn';
+          }
         } else {
           this.wrongAnswers++;
         }

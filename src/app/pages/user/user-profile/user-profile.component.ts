@@ -1,24 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {NgxSpinnerService} from 'ngx-spinner';
-import {LoginService} from 'src/app/services/login.service';
-import {UserService} from "../../../services/user.service";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { LoginService } from 'src/app/services/login.service';
+import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
-
   user;
 
-  constructor(private login: LoginService,
-              private spinner: NgxSpinnerService,
-              private userService: UserService,
-              private router: Router
-  ) {
-  }
+  constructor(
+    private login: LoginService,
+    private spinner: NgxSpinnerService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -28,21 +27,11 @@ export class UserProfileComponent implements OnInit {
   getUser() {
     setTimeout(() => {
       this.spinner.hide();
-    }, 3000)
+    }, 3000);
     this.user = this.login.getUser();
-    console.log(this.user)
-  }
-  getUserDetails() {
-    this.userService.updateUser(this.user).subscribe({
-      next: (data:any) => {
-        console.log('updated')
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    console.log(this.user);
   }
   updateUser() {
-    this.router.navigate(['user-dashboard/update-user'])
-}
+    this.router.navigate(['user-dashboard/update-user']);
+  }
 }

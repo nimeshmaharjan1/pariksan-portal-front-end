@@ -18,7 +18,8 @@
         </nb-list>
       </nb-card>
     </div>
-    <div class="col-md-8" [ngClass]="isSubmitted ? 'div-center' : ''">
+    <div class="col-md-8">
+      <!-- [ngClass]="isSubmitted ? 'div-center' : ''" -->
       <ng-container *ngIf="!isSubmitted;">
         <ng-container *ngIf="choosenDifficultyLevel == 1">
           <div *ngFor="let item of levelOneQuestions;let i = index">
@@ -89,100 +90,190 @@
           </button>
         </div>
       </ng-container>
-      <ng-container *ngIf="isSubmitted">
-        <nb-card accent="success">
-          <nb-card-header class="text-center" style="position: relative;">
-            <nb-badge text='Level' status="danger" position="top right"></nb-badge>
-            <nb-badge text={{choosenDifficultyLevel}} status="danger" position="top right"></nb-badge>
-            <h2 class="p-2" *ngIf="choosenDifficultyLevel == 1">
-              {{levelOneQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
-              quiz at the
-              moment!'}}
-            </h2>
-            <h2 class="p-2" *ngIf="choosenDifficultyLevel == 2">
-              {{levelTwoQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
-              quiz at the
-              moment!'}}
-            </h2>
-            <h2 class="p-2" *ngIf="choosenDifficultyLevel == 3">
-              {{levelThreeQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
-              quiz at the
-              moment!'}}
-            </h2>
-            <h4>
+    </div>
 
-            </h4>
-          </nb-card-header>
-          <ng-container *ngIf="choosenDifficultyLevel == 1">
-            <nb-card-body *ngIf="levelOneQuestions.length > 1; else display">
-              <h4>
-                The scores have been displayed below.
-              </h4>
-              <div class="scores mt-3">
-                <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot : '0'}}</span></h5>
-                <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
-                <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
-                <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
+
+    <ng-container *ngIf="isSubmitted">
+      <nb-card accent="success">
+        <nb-card-header class="text-center" style="position: relative;">
+          <nb-badge text='Level' status="danger" position="top right"></nb-badge>
+          <nb-badge text={{choosenDifficultyLevel}} status="danger" position="top right"></nb-badge>
+          <h2 class="p-2" *ngIf="choosenDifficultyLevel == 1">
+            {{levelOneQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
+            quiz at the
+            moment!'}}
+          </h2>
+          <h2 class="p-2" *ngIf="choosenDifficultyLevel == 2">
+            {{levelTwoQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
+            quiz at the
+            moment!'}}
+          </h2>
+          <h2 class="p-2" *ngIf="choosenDifficultyLevel == 3">
+            {{levelThreeQuestions.length > 1 ? 'Good job on completing the quiz.' : 'No questions available for this
+            quiz at the
+            moment!'}}
+          </h2>
+          <h4>
+
+          </h4>
+        </nb-card-header>
+        <ng-container *ngIf="choosenDifficultyLevel == 1">
+          <nb-card-body *ngIf="levelOneQuestions.length > 1; else display">
+            <div class="row">
+              <div class="col-md-10">
+                <nb-card>
+                  <nb-card-header>
+                    <h4>
+                      The scores have been displayed below.
+                    </h4>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="scores mt-1">
+                      <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot :
+                          '0'}}</span>
+                      </h5>
+                      <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
+                      <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
+                      <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
               </div>
-            </nb-card-body>
-            <ng-template #display></ng-template>
-          </ng-container>
-          <ng-container *ngIf="choosenDifficultyLevel == 2">
-            <nb-card-body *ngIf="levelTwoQuestions.length > 1; else display">
-              <h4>
-                The scores have been displayed below.
-              </h4>
-              <div class="scores mt-3">
-                <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot : '0'}}</span></h5>
-                <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
-                <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
-                <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
-              </div>
-            </nb-card-body>
-            <ng-template #display></ng-template>
-          </ng-container>
-          <ng-container *ngIf="choosenDifficultyLevel == 3">
-            <nb-card-body *ngIf="levelThreeQuestions.length > 1; else display">
-              <h4>
-                The scores have been displayed below.
-              </h4>
-              <div class="scores mt-3">
-                <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot : '0'}}</span></h5>
-                <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
-                <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
-                <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
-              </div>
-            </nb-card-body>
-            <ng-template #display></ng-template>
-          </ng-container>
-          <nb-card-footer class="text-center">
-            <div class="row justify-content-center">
               <div class="col-md-2">
-                <button class="disable-print" [routerLink]="'/user-dashboard/0'" ghost nbButton status="danger"
-                  size="small">
-                  Home
-                </button>
-              </div>
-              <div class="col-md-2" *ngIf="choosenDifficultyLevel == 1 && levelOneQuestions.length > 1">
-                <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
-                  Print
-                </button>
-              </div>
-              <div class="col-md-2" *ngIf="choosenDifficultyLevel == 2 && levelTwoQuestions.length > 1">
-                <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
-                  Print
-                </button>
-              </div>
-              <div class="col-md-2" *ngIf="choosenDifficultyLevel == 3 && levelThreeQuestions.length > 1">
-                <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
-                  Print
-                </button>
+                <nb-card size="tiny">
+                  <nb-card-header class="text-center">
+                    <h3>Grade</h3>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="row justify-content-center mt-2">
+                      <mat-progress-spinner diameter="100" [color]=color [value]=value mode="determinate">
+                      </mat-progress-spinner>
+                      <div class="grade">
+                        <h4>{{grade}}</h4>
+                      </div>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
               </div>
             </div>
-          </nb-card-footer>
-        </nb-card>
-      </ng-container>
-    </div>
+          </nb-card-body>
+          <ng-template #display></ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="choosenDifficultyLevel == 2">
+          <nb-card-body *ngIf="levelTwoQuestions.length > 1; else display">
+            <div class="row">
+              <div class="col-md-10">
+                <nb-card>
+                  <nb-card-header>
+                    <h4>
+                      The scores have been displayed below.
+                    </h4>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="scores mt-1">
+                      <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot :
+                          '0'}}</span>
+                      </h5>
+                      <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
+                      <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
+                      <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+              <div class="col-md-2">
+                <nb-card size="tiny">
+                  <nb-card-header class="text-center">
+                    <h3>Grade</h3>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="row justify-content-center mt-2">
+                      <mat-progress-spinner diameter="100" [color]=color [value]=value mode="determinate">
+                      </mat-progress-spinner>
+                      <div class="grade">
+                        <h4>{{grade}}</h4>
+                      </div>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-card-body>
+          <ng-template #display></ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="choosenDifficultyLevel == 3">
+          <nb-card-body *ngIf="levelThreeQuestions.length > 1; else display">
+            <div class="row">
+              <div class="col-md-10">
+                <nb-card>
+                  <nb-card-header>
+                    <h4>
+                      The scores have been displayed below.
+                    </h4>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="scores mt-1">
+                      <h5>Total Marks Scored: <span style="color: rgb(44, 212, 52);">{{marksGot ? marksGot :
+                          '0'}}</span>
+                      </h5>
+                      <h5>Correct Answers: <span style="color: rgb(112, 235, 188);">{{correctAnswers}}</span></h5>
+                      <h5>Attempted: <span style="color: rgb(151, 121, 207);">{{attempted}}</span></h5>
+                      <h5>Wrong Answers: <span style="color: rgb(190, 97, 97);">{{wrongAnswers}}</span></h5>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+              <div class="col-md-2">
+                <nb-card class="tiny">
+                  <nb-card-header class="text-center">
+                    <h3>Grade</h3>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <div class="row justify-content-center mt-2">
+                      <mat-progress-spinner diameter="100" [color]=color [value]=value mode="determinate">
+                      </mat-progress-spinner>
+                      <div class="grade">
+                        <h4>{{grade}}</h4>
+                      </div>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </nb-card-body>
+          <ng-template #display></ng-template>
+        </ng-container>
+
+        <nb-card-footer class="text-center">
+          <div class="row justify-content-center">
+            <div class="col-md-2">
+              <button class="disable-print" [routerLink]="'/user-dashboard/0'" ghost nbButton status="danger"
+                size="small">
+                Home
+              </button>
+            </div>
+            <div class="col-md-2" *ngIf="choosenDifficultyLevel == 1 && levelOneQuestions.length > 1">
+              <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
+                Print
+              </button>
+            </div>
+            <div class="col-md-2" *ngIf="choosenDifficultyLevel == 2 && levelTwoQuestions.length > 1">
+              <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
+                Print
+              </button>
+            </div>
+            <div class="col-md-2" *ngIf="choosenDifficultyLevel == 3 && levelThreeQuestions.length > 1">
+              <button class="disable-print" (click)="printPage()" nbButton status="primary" size="small">
+                Print
+              </button>
+            </div>
+          </div>
+        </nb-card-footer>
+      </nb-card>
+    </ng-container>
+
     <div class="col-md-2 text-center" *ngIf="!isSubmitted">
       <nb-card class="sticky-card" accent="danger">
         <nb-card-header>

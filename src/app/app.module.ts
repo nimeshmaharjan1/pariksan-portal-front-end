@@ -67,6 +67,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/difficulty/difficulty.component';
 import { UpdateUserComponent } from './pages/user/update-user/update-user.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,6 +135,7 @@ import { UpdateUserComponent } from './pages/user/update-user/update-user.compon
     MatRadioModule,
     NbDialogModule.forRoot(),
     NbBadgeModule,
+    MatSnackBarModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [authInterceptorProviders],
