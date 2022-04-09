@@ -1,3 +1,4 @@
+import { UserQuizService } from './../../../../../../services/User-quiz/user-quiz.service';
 import { ObjectUtil } from './../../../../../../services/ObjectUtil';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocationStrategy } from '@angular/common';
@@ -46,7 +47,8 @@ export class StartQuizComponent implements OnInit {
     private route: ActivatedRoute,
     private questionService: QuestionService,
     private dialogService: NbDialogService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private userQuizService: UserQuizService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -107,6 +109,7 @@ export class StartQuizComponent implements OnInit {
       showCancelButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
+        this.userQuizService.attempts++;
         this.isSubmitted = true;
         this.evaluateQuiz();
       }
