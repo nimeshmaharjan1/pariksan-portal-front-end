@@ -1,3 +1,4 @@
+import { QuestionService } from './../../../services/question/question.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import Swal from 'sweetalert2';
@@ -11,16 +12,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-user.component.scss'],
 })
 export class UpdateUserComponent implements OnInit {
+  userId: any;
   constructor(
     private loginService: LoginService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private questionService: QuestionService
   ) {}
   userDetails: any;
   userFromApi;
   ngOnInit(): void {
     this.userDetails = this.loginService.getUser();
+    this.userId = this.userDetails.id;
+    console.log(this.userDetails);
   }
   submit() {
     this.spinner.show();

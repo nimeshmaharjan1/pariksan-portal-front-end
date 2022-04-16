@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" *ngFor="let category of categories">
-                    <nb-card status="primary" class="categories" size="tiny"
+                    <nb-card accent="info" class="categories" size="tiny"
                         [routerLink]="'/user-dashboard/categories/quizzes/' + category.categoryId + '/' + category.title">
                         <nb-card-header class="category-title">
                             {{category.title}}

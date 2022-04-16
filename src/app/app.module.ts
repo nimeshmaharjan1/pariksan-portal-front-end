@@ -68,6 +68,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { DifficultyComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/difficulty/difficulty.component';
 import { UpdateUserComponent } from './pages/user/update-user/update-user.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UploadCsvComponent } from './pages/admin/upload-csv/upload-csv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +100,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     StartQuizComponent,
     DifficultyComponent,
     UpdateUserComponent,
+    UploadCsvComponent,
   ],
   imports: [
     BrowserModule,

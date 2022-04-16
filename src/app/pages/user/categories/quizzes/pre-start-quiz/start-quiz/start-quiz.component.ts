@@ -51,28 +51,22 @@ export class StartQuizComponent implements OnInit {
     private userQuizService: UserQuizService
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.open();
     this.getQuizId();
     this.preventBackButton();
   }
-
-  filterDifficultQuestions(levelQuestions, level) {
-    levelQuestions = this.questions.filter(
-      (x: { difficultyLevel: number }) => x.difficultyLevel == level
-    );
-  }
-  getQuestions() {
+  async getQuestions() {
     this.questionService.getShuffledQuestions(this.quizId).subscribe({
-      next: (data: any) => {
-        this.questions = data;
-        this.levelOneQuestions = this.questions.filter(
+      next: async (data: any) => {
+        this.questions = await data;
+        this.levelOneQuestions = await this.questions.filter(
           (x: { difficultyLevel: number }) => x.difficultyLevel == 1
         );
-        this.levelTwoQuestions = this.questions.filter(
+        this.levelTwoQuestions = await this.questions.filter(
           (x: { difficultyLevel: number }) => x.difficultyLevel == 2
         );
-        this.levelThreeQuestions = this.questions.filter(
+        this.levelThreeQuestions = await this.questions.filter(
           (x: { difficultyLevel: number }) => x.difficultyLevel == 3
         );
         if (this.choosenDifficultyLevel == 1) {
@@ -85,7 +79,6 @@ export class StartQuizComponent implements OnInit {
           this.timer = this.levelThreeQuestions.length * 1 * 60;
           this.startTimer();
         }
-        console.log(data);
       },
       error: (err) => {
         console.log(err);
@@ -134,6 +127,14 @@ export class StartQuizComponent implements OnInit {
     return `${m} : ${s}`;
   }
   evaluateQuiz() {
+    // this.questionService.evaluateQuiz(this.questions).subscribe({
+    //   next: (data: any) => {
+    //     console.log(data);
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   },
+    // });
     if (this.choosenDifficultyLevel == 1) {
       for (let x of this.levelOneQuestions) {
         if (x.answer == x.givenAnswer) {

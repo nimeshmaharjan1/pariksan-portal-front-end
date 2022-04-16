@@ -1,0 +1,12 @@
+li {
+  list-style-type:disc;
+  line-height: 1.9em;
+  &::marker{
+    color: red;
+  }
+}
+img {
+  aspect-ratio: 12/4;
+  height: 500px;
+  width: 1400px;
+}

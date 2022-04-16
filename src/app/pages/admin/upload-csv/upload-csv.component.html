@@ -1,1 +1,38 @@
-<p>upload-csv works!</p>
+<nb-card accent="info">
+  <nb-card-header>
+    <h1 class="card-title">
+      Instructions to upload a CSV file
+    </h1>
+  </nb-card-header>
+  <nb-card-body>
+    <p>
+      The file should have the following columns with the exact naming:
+    </p>
+    <ul>
+      <li>questionId</li>
+      <li>content</li>
+      <li>option1</li>
+      <li>option2</li>
+      <li>option3</li>
+      <li>option4</li>
+      <li>answer</li>
+      <li>difficultyLevel</li>
+    </ul>
+    <p>Kindly refer to the following image.</p>
+    <img src="../../../assets/ss.jpg" alt="">
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <input nbInput class="form-control" type="file"
+                   (change)="onChange($event)"></div>
+          <div class="col-md-6">
+            <button [disabled]="!isFileSelected" (click)="onUpload()" nbButton outline status="success">upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

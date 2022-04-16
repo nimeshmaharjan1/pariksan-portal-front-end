@@ -1,12 +1,24 @@
 <nb-card>
   <nb-card-header class="container">
-    <h1>
-      <strong><span style="color: #ff3d71">{{quizTitle}}</span></strong>
-      <button [routerLink]="'/admin/add-question/' + quizId + '/' + quizTitle" nbButton outline status="success"
-        class="m-4 mt-3">
-        <nb-icon icon="plus-outline"></nb-icon>
-      </button>
-    </h1>
+    <div class="col-sm-12 justify-content-sm-start">
+      <h1>
+        <strong><span style="color: #ff3d71">{{quizTitle}}</span></strong>
+      </h1>
+      <div class="col-sm-3 d-flex justify-content-between my-2">
+        <div>
+          <button [routerLink]="'/admin/add-question/' + quizId + '/' + quizTitle" nbButton outline size="small"
+            status="success">Add Question
+            <nb-icon icon="plus-outline"></nb-icon>
+          </button>
+        </div>
+        <div>
+          <button [routerLink]="'/admin/upload-csv/' + quizId + '/' + quizTitle" nbButton outline size="small"
+            status="success">
+            Upload a CSV File
+          </button>
+        </div>
+      </div>
+    </div>
   </nb-card-header>
   <nb-card-body>
     <div class="container-fluid">
@@ -14,8 +26,9 @@
         <div class="d-flex align-items-center">
           <h4>
             <strong>Question. {{i + 1}} </strong>{{question.content}}
-            <button class="btn btn-danger">Level : <span class="bagde">{{question.difficultyLevel}}</span></button>
           </h4>
+          <button class="btn btn-danger btn-sm mx-3 mb-2">Level : <span
+              class="bagde">{{question.difficultyLevel}}</span></button>
         </div>
         <div class="row">
           <div class="col-md-6">

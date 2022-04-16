@@ -24,6 +24,7 @@ import { QuizzesComponent } from './pages/user/categories/quizzes/quizzes.compon
 import { PreStartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/pre-start-quiz.component';
 import { StartQuizComponent } from './pages/user/categories/quizzes/pre-start-quiz/start-quiz/start-quiz.component';
 import {UpdateUserComponent} from "./pages/user/update-user/update-user.component";
+import {UploadCsvComponent} from "./pages/admin/upload-csv/upload-csv.component";
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
       {
         path: 'update-question/:quizId/:title/:questionId',
         component: UpdateQuestionComponent,
+      },
+      {
+        path: 'upload-csv/:quizId/:title',
+        component: UploadCsvComponent,
       },
     ],
   },

@@ -33,4 +33,8 @@ export class QuestionService {
   public evaluateQuiz(questions) {
     return this.http.post(`${baseUrl}/question/evaluate-quiz`, questions);
   }
+
+  public uploadQuestions(file) {
+    return this.http.post(`${baseUrl}/question/upload`, file);
+  }
 }
