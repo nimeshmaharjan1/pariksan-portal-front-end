@@ -127,14 +127,6 @@ export class StartQuizComponent implements OnInit {
     return `${m} : ${s}`;
   }
   evaluateQuiz() {
-    // this.questionService.evaluateQuiz(this.questions).subscribe({
-    //   next: (data: any) => {
-    //     console.log(data);
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   },
-    // });
     if (this.choosenDifficultyLevel == 1) {
       for (let x of this.levelOneQuestions) {
         if (x.answer == x.givenAnswer) {

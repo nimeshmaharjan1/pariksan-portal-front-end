@@ -256,9 +256,29 @@
                   </h4>
                 </nb-card-header>
 
-                <nb-list>
+                <nb-list *ngIf="choosenDifficultyLevel == 1">
 
                   <nb-list-item *ngFor="let item of levelOneQuestions; let i = index">
+                    Q.{{i + 1}} {{item.content}}<br>
+                    Selected Answer: {{item.givenAnswer}} <br>
+                    Correct Answer: {{item.answer}}
+                  </nb-list-item>
+
+                </nb-list>
+
+                <nb-list *ngIf="choosenDifficultyLevel == 2">
+
+                  <nb-list-item *ngFor="let item of levelTwoQuestions; let i = index">
+                    Q.{{i + 1}} {{item.content}}<br>
+                    Selected Answer: {{item.givenAnswer}} <br>
+                    Correct Answer: {{item.answer}}
+                  </nb-list-item>
+
+                </nb-list>
+
+                <nb-list *ngIf="choosenDifficultyLevel == 3">
+
+                  <nb-list-item *ngFor="let item of levelThreeQuestions; let i = index">
                     Q.{{i + 1}} {{item.content}}<br>
                     Selected Answer: {{item.givenAnswer}} <br>
                     Correct Answer: {{item.answer}}
