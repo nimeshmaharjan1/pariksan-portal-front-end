@@ -75,14 +75,6 @@ export class SidebarComponent implements OnInit {
       link: '/home',
     },
     {
-      title: 'Dashboard',
-      icon: {
-        icon: 'layout-outline',
-        options: { animation: { type: 'zoom' } },
-      },
-      link: '/admin',
-    },
-    {
       title: 'Profile',
       icon: {
         icon: 'smiling-face-outline',

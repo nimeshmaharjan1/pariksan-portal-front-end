@@ -1,3 +1,5 @@
+import { BestScoreService } from './../../../services/dashboard/best-score/best-score.service';
+import { AttemptsService } from './../../../services/dashboard/attempts/attempts.service';
 import { UserQuizService } from './../../../services/User-quiz/user-quiz.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -16,19 +18,22 @@ export class WelcomeUserComponent implements OnInit {
     private themeService: NbThemeService,
     private quizService: QuizService,
     private route: ActivatedRoute,
-    private userQuizService: UserQuizService
+    private userQuizService: UserQuizService,
+    private attemptsService: AttemptsService,
+    private bestScoreService: BestScoreService
   ) {}
 
   categories: any;
   url: any;
   attempts: any;
   quizzes: any;
+  bestScore: any;
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.url = params['categoryId'];
-      this.attempts = this.userQuizService.attempts;
-      console.log('Attempts: ', this.attempts);
     });
+    this.attempts = this.attemptsService.attempts;
+    this.bestScore = this.bestScoreService.score;
 
     this.categoryService.categories().subscribe({
       next: (data: any) => {

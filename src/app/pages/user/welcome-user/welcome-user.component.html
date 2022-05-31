@@ -10,9 +10,10 @@
             Attempts
             <hr>
           </h4>
-          <p>
-            Attempts
+          <p *ngIf="attempts > 0">
+            You have attempted {{attempts}} quiz.
           </p>
+          <p *ngIf="attempts === 0">Please attempt an quiz.</p>
         </nb-card-body>
       </nb-card>
     </div>
@@ -20,12 +21,13 @@
       <nb-card size="tiny">
         <nb-card-body>
           <h4>
-            Quiz
+            Best Score
             <hr>
           </h4>
-          <p>
-            Best Score
+          <p *ngIf="bestScore !== ''">
+            Your best score is {{bestScore}}.
           </p>
+          <p *ngIf="bestScore === ''">Please attempt an quiz.</p>
         </nb-card-body>
       </nb-card>
     </div>

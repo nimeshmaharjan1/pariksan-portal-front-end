@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
           console.log(user);
           if (this.login.getUserRole() === 'ADMIN') {
             this.spinner.hide();
-            this.router.navigate(['admin']);
+            this.router.navigate(['admin/categories']);
             this.login.logInStatusSubject.next(true);
           } else if (this.login.getUserRole() === 'STUDENT') {
             this.spinner.hide();

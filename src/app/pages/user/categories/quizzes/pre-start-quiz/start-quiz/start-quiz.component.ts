@@ -1,3 +1,5 @@
+import { BestScoreService } from './../../../../../../services/dashboard/best-score/best-score.service';
+import { AttemptsService } from './../../../../../../services/dashboard/attempts/attempts.service';
 import { UserQuizService } from './../../../../../../services/User-quiz/user-quiz.service';
 import { ObjectUtil } from './../../../../../../services/ObjectUtil';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -48,7 +50,9 @@ export class StartQuizComponent implements OnInit {
     private questionService: QuestionService,
     private dialogService: NbDialogService,
     private spinner: NgxSpinnerService,
-    private userQuizService: UserQuizService
+    private userQuizService: UserQuizService,
+    private attemptService: AttemptsService,
+    private bestScore: BestScoreService
   ) {}
 
   ngOnInit() {
@@ -105,6 +109,7 @@ export class StartQuizComponent implements OnInit {
         this.userQuizService.attempts++;
         this.isSubmitted = true;
         this.evaluateQuiz();
+        this.attemptService.attempts++;
       }
     });
   }
@@ -136,6 +141,7 @@ export class StartQuizComponent implements OnInit {
             this.levelOneQuestions.length;
           this.marksGot += singleMarks;
           this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
+          console.log('X quiz ', x.quiz);
           if (this.percentage >= 80) {
             this.grade = 'A+';
             this.value = 100;
@@ -144,11 +150,13 @@ export class StartQuizComponent implements OnInit {
             this.grade = 'B+';
             this.value = 60;
             this.color = 'accent';
-          } else if (this.percentage >= 40 && this.percentage <= 60) {
-            this.grade = 'C+';
+          } else if (this.percentage <= 60) {
+            this.grade = 'C';
             this.value = 40;
             this.color = 'warn';
           }
+          console.log(this.grade);
+          this.bestScore.score = this.grade;
         } else {
           this.wrongAnswers++;
         }
@@ -166,25 +174,25 @@ export class StartQuizComponent implements OnInit {
             this.levelTwoQuestions.length;
           this.marksGot += singleMarks;
           this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
-          if (this.percentage >= 80) {
-            this.grade = 'A+';
-            this.value = 100;
-            this.color = 'primary';
-          } else if (this.percentage >= 60 && this.percentage <= 80) {
-            this.grade = 'B+';
-            this.value = 60;
-            this.color = 'accent';
-          } else if (this.percentage >= 40 && this.percentage <= 60) {
-            this.grade = 'C+';
-            this.value = 40;
-            this.color = 'warn';
-          }
         } else {
           this.wrongAnswers++;
         }
         if (!ObjectUtil.isEmpty(x.givenAnswer)) {
           this.attempted++;
         }
+      }
+      if (this.percentage >= 80) {
+        this.grade = 'A+';
+        this.value = 100;
+        this.color = 'primary';
+      } else if (this.percentage >= 60 && this.percentage <= 80) {
+        this.grade = 'B+';
+        this.value = 60;
+        this.color = 'accent';
+      } else if (this.percentage >= 40 && this.percentage <= 60) {
+        this.grade = 'C';
+        this.value = 40;
+        this.color = 'warn';
       }
     }
     if (this.choosenDifficultyLevel == 3) {
@@ -196,25 +204,25 @@ export class StartQuizComponent implements OnInit {
             this.levelThreeQuestions.length;
           this.marksGot += singleMarks;
           this.percentage = (this.marksGot / x.quiz.maxMarks) * 100;
-          if (this.percentage >= 80) {
-            this.grade = 'A+';
-            this.value = 100;
-            this.color = 'primary';
-          } else if (this.percentage >= 60 && this.percentage <= 80) {
-            this.grade = 'B+';
-            this.value = 60;
-            this.color = 'accent';
-          } else if (this.percentage >= 40 && this.percentage <= 60) {
-            this.grade = 'C+';
-            this.value = 40;
-            this.color = 'warn';
-          }
         } else {
           this.wrongAnswers++;
         }
         if (!ObjectUtil.isEmpty(x.givenAnswer)) {
           this.attempted++;
         }
+      }
+      if (this.percentage >= 80) {
+        this.grade = 'A+';
+        this.value = 100;
+        this.color = 'primary';
+      } else if (this.percentage >= 60 && this.percentage <= 80) {
+        this.grade = 'B+';
+        this.value = 60;
+        this.color = 'accent';
+      } else if (this.percentage >= 40 && this.percentage <= 60) {
+        this.grade = 'C';
+        this.value = 40;
+        this.color = 'warn';
       }
     }
   }
